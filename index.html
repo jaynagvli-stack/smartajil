@@ -3,12 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Smart Ajil - Mongoliin hamgiin uhaalaG ajlin bairni platform. 500+ ajlin bair, 200+ kompani. Odoo burgtuul!">
-  <meta name="keywords" content="ajil, ajlin bair, mongol, ulaanbaatar, smart ajil, logo, poster, website">
-  <meta property="og:title" content="Smart Ajil - Ajil Ol, Hunee Ol">
-  <meta property="og:description" content="Mongoliin hamgiin uhaalaG ajlin bairni platform. 500+ ajlin bair!">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://smartajil.netlify.app">
+
+<!-- ===== SEO ===== -->
+<meta name="description" content="Smart Ажил — Монголын ухаалаг ажлын байрны платформ. 500+ ажлын байр, лого хийх, постер, вэбсайт, QR код, цахим урилга үйлчилгээ. Улаанбаатар. 7211-7170">
+<meta name="keywords" content="ажил хайх, ажлын байр, Монгол, Улаанбаатар, Smart Ажил, лого хийх, постер хийх, вэбсайт хийх, QR код, цахим урилга, дизайн, ажил олох, ажилтан хайх, ajil, ajlin bair, logo, poster, website, qr kod, Mongolia">
+<meta name="author" content="Smart Ажил">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Mongolian">
+<meta name="geo.region" content="MN-047">
+<meta name="geo.placename" content="Улаанбаатар, Монгол">
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smartajil.pages.dev">
+<meta property="og:title" content="Smart Ажил — Ажил хайх | Лого | Постер | Вэбсайт | QR Код">
+<meta property="og:description" content="Монголын ухаалаг ажлын байрны платформ. 500+ ажлын байр. Лого, постер, вэбсайт, QR код, цахим урилга хийлгэх. ☎️ 7211-7170">
+<meta property="og:image" content="https://smartajil.pages.dev/smart_ajil_poster.jpg">
+<meta property="og:locale" content="mn_MN">
+<meta property="og:site_name" content="Smart Ажил">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart Ажил — Ажил хайх | Лого | Вэбсайт">
+<meta name="twitter:description" content="Монголын ухаалаг ажлын байрны платформ. 500+ ажлын байр. ☎️ 7211-7170">
+
+<link rel="canonical" href="https://smartajil.pages.dev">
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Smart Ажил",
+  "description": "Монголын ухаалаг ажлын байрны платформ. Лого, постер, вэбсайт, QR код, цахим урилга.",
+  "url": "https://smartajil.pages.dev",
+  "telephone": "+97672117170",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Улаанбаатар",
+    "addressCountry": "MN"
+  },
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": ["https://wa.me/97672117170"],
+  "serviceType": ["Ажлын байр", "Лого дизайн", "Постер дизайн", "Вэбсайт хийх", "QR Код", "Цахим урилга"]
+}
+</script>
 <title>Smart Ажил — Ухаалаг ажлын байрны платформ</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -99,13 +138,7 @@
   .admin-nav-btn.visible { display: block; }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 120px 60px 80px;
-    position: relative;
-    overflow: hidden;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 60px 80px; position: relative; overflow: hidden; padding-top: calc(72px + 48px); }
 
   .hero-bg {
     position: absolute; inset: 0;
@@ -1083,60 +1116,266 @@
     transition: background 0.2s;
   }
   .chat-send:hover { background: #0a5240; }
+
+  /* ===== MOBILE HAMBURGER NAV ===== */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 200;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,31,26,0.97);
+    z-index: 150;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 80px 32px 40px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a, .mobile-menu button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+  .mobile-menu a:hover, .mobile-menu button:hover { color: var(--green-light); }
+  .mobile-menu .mob-cta {
+    margin-top: 24px;
+    background: var(--green);
+    border-radius: 50px !important;
+    border: none !important;
+    color: white;
+    font-size: 18px !important;
+    padding: 16px 0 !important;
+  }
+  .mobile-menu .mob-wa {
+    background: #25D366;
+    border-radius: 50px !important;
+    border: none !important;
+    color: white;
+    font-size: 17px !important;
+    padding: 14px 0 !important;
+    margin-top: 10px;
+  }
+
+  /* ===== RESPONSIVE BREAKPOINTS ===== */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 100px 24px 60px; }
+    .hero h1 { font-size: clamp(36px, 8vw, 56px); }
+    .hero p { font-size: 16px; }
+    .hero-stats {
+      position: relative;
+      right: auto; bottom: auto;
+      flex-direction: row;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      gap: 12px;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .stat-card { flex: 1; min-width: 100px; padding: 16px 20px; }
+    .stat-card .num { font-size: 28px; }
+    .hero-circles { width: 300px; height: 300px; top: -50px; right: -50px; }
+
+    .section { padding: 64px 24px; }
+    .section-title { font-size: clamp(28px, 6vw, 40px); margin-bottom: 40px; }
+    .steps { grid-template-columns: 1fr; }
+    .step { padding: 32px 24px; }
+
+    .jobs-section { padding: 64px 24px; }
+    .jobs-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .jobs-grid { grid-template-columns: 1fr; }
+
+    .services-section { padding: 64px 24px; }
+    .services-grid { grid-template-columns: 1fr; margin-top: 40px; }
+    .service-card { padding: 28px 24px; }
+
+    .why-section { padding: 64px 24px; }
+    .features { grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+    .feature { padding: 24px; }
+
+    .cta-section { padding: 64px 24px; }
+    .cta-phone { font-size: 36px; }
+
+    footer { padding: 32px 24px; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+
+    /* search bar on hero */
+    .search-bar { max-width: 100%; }
+    .search-bar input { font-size: 14px; padding: 10px 14px; }
+    .search-bar button { padding: 10px 18px; font-size: 14px; }
+
+    /* Admin bar */
+    .admin-bar { padding: 10px 24px; }
+
+    /* Chat widget smaller on mobile */
+    .chat-widget { right: 16px; bottom: 88px; }
+    .chat-box { width: 290px; }
+    .wa-float { right: 16px; bottom: 24px; }
+  }
+
+  @media (max-width: 600px) {
+    nav { height: 60px; padding: 0 16px; }
+    .nav-logo-text { font-size: 18px; }
+    .nav-logo-icon { width: 32px; height: 32px; font-size: 16px; }
+
+    .hero { padding: 80px 16px 48px; }
+    .hero-badge { font-size: 12px; padding: 5px 12px; }
+    .hero h1 { font-size: 32px; margin-bottom: 16px; }
+    .hero p { font-size: 15px; margin-bottom: 32px; }
+    .hero-actions { gap: 10px; }
+    .btn-primary, .btn-outline { padding: 13px 24px; font-size: 15px; }
+    .hero-stats { gap: 8px; }
+    .stat-card { padding: 12px 14px; }
+    .stat-card .num { font-size: 24px; }
+    .stat-card .label { font-size: 11px; }
+
+    .section { padding: 48px 16px; }
+    .section-label { font-size: 11px; }
+    .section-title { font-size: 26px; margin-bottom: 28px; }
+
+    .step { padding: 24px 16px; }
+    .step-num { font-size: 48px; }
+    .step-icon { font-size: 28px; }
+    .step h3 { font-size: 18px; }
+
+    .jobs-section { padding: 48px 16px; }
+    .job-card { padding: 20px; }
+    .job-title { font-size: 16px; }
+    .salary { font-size: 16px; }
+    #jobSearch { width: 100% !important; }
+    .jobs-header > div:last-child { width: 100%; flex-direction: column; }
+    .add-job-btn, #importJobBtn { width: 100%; justify-content: center; }
+
+    .services-section { padding: 48px 16px; }
+    .service-card { padding: 24px 18px; }
+    .service-card h3 { font-size: 18px; }
+    .service-card p { font-size: 14px; }
+
+    .why-section { padding: 48px 16px; }
+    .features { grid-template-columns: 1fr; gap: 12px; }
+    .feature { padding: 20px; }
+    .feature h3 { font-size: 17px; }
+
+    .cta-section { padding: 48px 16px; }
+    .cta-phone { font-size: 30px; }
+    .cta-section h2 { font-size: 28px; }
+    .cta-section p { font-size: 15px; margin-bottom: 32px; }
+
+    /* Modals full screen on mobile */
+    .modal-overlay { padding: 0; align-items: flex-end; }
+    .modal {
+      border-radius: 24px 24px 0 0;
+      padding: 28px 20px 32px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    .modal.wide { max-width: 100%; }
+    .modal.order { max-width: 100%; }
+    .modal h2 { font-size: 22px; }
+    .form-row { grid-template-columns: 1fr; }
+    .payment-box { padding: 20px 16px; }
+    .payment-box-account { font-size: 24px; }
+
+    .admin-bar { padding: 8px 16px; font-size: 13px; }
+
+    /* Portfolio */
+    #portfolioGrid { grid-template-columns: 1fr 1fr !important; gap: 12px; }
+    .pf-info { padding: 12px; }
+    .pf-title { font-size: 13px; }
+
+    /* Chat on mobile */
+    .chat-box { width: calc(100vw - 32px); }
+    .chat-widget { right: 12px; bottom: 84px; }
+    .wa-float { right: 12px; bottom: 20px; }
+    .wa-btn { width: 50px; height: 50px; }
+    .wa-btn svg { width: 26px; height: 26px; }
+
+    /* Footer */
+    footer { padding: 28px 16px; gap: 8px; }
+    .footer-logo { font-size: 20px; }
+    .footer-text { font-size: 12px; }
+
+    /* How it works CTA buttons */
+    #how .hero-actions, #how > div[style*="justify-content:center"] {
+      flex-direction: column; align-items: stretch;
+    }
+  }
+
+  /* ===== MOBILE TOUCH IMPROVEMENTS ===== */
+  @media (hover: none) {
+    .job-card:hover { transform: none; box-shadow: none; }
+    .service-card:hover { transform: none; box-shadow: none; }
+    .feature:hover { transform: none; }
+    .pf-card:hover { transform: none; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  }
+
+  /* Active states for touch */
+  .job-card:active { transform: scale(0.98); }
+  .service-card:active { transform: scale(0.98); }
+  .btn-primary:active, .btn-outline:active { transform: scale(0.97); }
+  .modal-btn:active { transform: scale(0.97); }
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
-  <!-- Firebase SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-    const firebaseConfig = {
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+  <script>
+    firebase.initializeApp({
       apiKey: "AIzaSyCaigmwdUgmW92af1cbnpJyvpmrRo6fK7A",
       authDomain: "smartajil.firebaseapp.com",
       projectId: "smartajil",
       storageBucket: "smartajil.firebasestorage.app",
       messagingSenderId: "943495989930",
       appId: "1:943495989930:web:4121adae9ddd65f2021ed3"
+    });
+    var db = firebase.firestore();
+    window.saveToFirestore = function(col, data) {
+      data.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+      return db.collection(col).add(data).then(function(){return true;}).catch(function(e){console.error(e);return false;});
     };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // Save registration (urgudel) to Firestore
-    window.saveToFirestore = async function(collectionName, data) {
-      try {
-        await addDoc(collection(db, collectionName), {
-          ...data,
-          createdAt: serverTimestamp()
-        });
-        return true;
-      } catch(e) {
-        console.error("Firestore error:", e);
-        return false;
-      }
-    };
-
-    // Load jobs from Firestore (company-added jobs)
-    window.loadFirestoreJobs = function(callback) {
-      const q = query(collection(db, "jobs"), orderBy("createdAt", "desc"));
-      onSnapshot(q, (snapshot) => {
-        const jobs = [];
-        snapshot.forEach(doc => jobs.push({id: doc.id, ...doc.data()}));
-        callback(jobs);
+    window.loadRegistrations = function(cb) {
+      db.collection("registrations").orderBy("createdAt","desc").onSnapshot(function(snap){
+        var r=[];snap.forEach(function(d){r.push(Object.assign({id:d.id},d.data()));});cb(r);
       });
     };
-
-    // Load company registrations for admin
-    window.loadRegistrations = function(callback) {
-      const q = query(collection(db, "registrations"), orderBy("createdAt", "desc"));
-      onSnapshot(q, (snapshot) => {
-        const regs = [];
-        snapshot.forEach(doc => regs.push({id: doc.id, ...doc.data()}));
-        callback(regs);
-      });
-    };
-
-    console.log("Firebase connected!");
   </script>
 </head>
 <body>
@@ -1157,7 +1396,20 @@
     <li><a href="#contact" class="nav-cta">Холбоо барих</a></li>
     <li><button class="admin-nav-btn" id="adminNavBtn" onclick="openAdminLogin()">⚙️ Админ</button></li>
   </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Цэс нээх">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#jobs" onclick="closeMobileMenu()">💼 Ажлын байр</a>
+  <a href="#services" onclick="closeMobileMenu()">✨ Үйлчилгээ</a>
+  <a href="#how" onclick="closeMobileMenu()">📋 Хэрхэн ажилладаг</a>
+  <a href="#why" onclick="closeMobileMenu()">⭐ Яагаад бид?</a>
+  <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">📞 Холбоо барих</a>
+  <a href="https://wa.me/97672117170" class="mob-wa" target="_blank" onclick="closeMobileMenu()">💬 WhatsApp</a>
+</div>
 
 <!-- ADMIN BAR -->
 <div class="admin-bar" id="adminBar">
@@ -1176,21 +1428,10 @@
     <button onclick="saveSettings()" style="padding:9px 24px;background:#0F6E56;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;font-family:inherit;">Хадгалах</button>
     <span id="settSaved" style="margin-left:10px;color:#0F6E56;font-size:13px;display:none;">✓ Хадгалагдлаа</span>
   </div>
-
-  <!-- Registrations panel -->
-  <div style="margin-top:20px;border-top:1px solid #e2e8f0;padding-top:16px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-      <h4 style="margin:0;font-size:15px;">📋 Бүртгэлүүд</h4>
-      <button onclick="loadRegs()" style="padding:6px 14px;background:#f0f4f8;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;">🔄 Шинэчлэх</button>
-    </div>
-    <div id="regsList" style="max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;">
-      <p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>
-    </div>
-  </div>
 </div>
 
 <!-- HERO -->
-<section class="hero" style="margin-top: 72px; margin-top: 0;">
+<section class="hero" id="hero">
   <div class="hero-bg"></div>
   <div class="hero-circles"></div>
   <div class="hero-dots">
@@ -1229,42 +1470,55 @@
 <!-- HOW IT WORKS -->
 <section class="section" id="how">
   <div class="section-label">Хэрхэн ажилладаг</div>
-  <div class="section-title">3 алхамаар<br>ажил олно</div>
+  <div class="section-title">4 алхамаар<br>ажил олно</div>
 
   <div class="steps">
-    <div class="step">
+    <div class="step" style="cursor:pointer;transition:all 0.2s;" onclick="openRegister()" onmouseenter="this.style.background='#f0f9f5'" onmouseleave="this.style.background=''">
       <div class="step-num">01</div>
       <span class="step-icon">📝</span>
       <h3>Бүртгүүл</h3>
-      <p>Өөрийн CV болон мэргэжлийн мэдээллээ оруул. Хэдхэн минутад бүртгэл дуусна.</p>
+      <p>Нэр, утас, мэргэжлээ оруулна — хэдхэн секундэд бүртгэл дуусна.</p>
+      <div style="margin-top:14px">
+        <span style="display:inline-flex;align-items:center;gap:6px;background:var(--green);color:white;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:600;">
+          ✍️ Одоо бүртгүүлэх →
+        </span>
+      </div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
-      <span class="step-icon">🎯</span>
-      <h3>Тохирох ажил хайх</h3>
-      <p>Манай ухаалаг систем таны ур чадварт тохирох ажлын байрыг санал болгоно.</p>
+      <span class="step-icon">📞</span>
+      <h3>Менежер холбогдоно</h3>
+      <p>Бүртгүүлсний дараа 24 цагийн дотор манай менежер таньд утсаар холбогдоно.</p>
+      <div style="margin-top:14px;display:flex;align-items:center;gap:8px;">
+        <span style="width:8px;height:8px;background:#25D366;border-radius:50%;animation:pulse 2s infinite;display:inline-block"></span>
+        <span style="font-size:13px;color:var(--muted)">24 цаг дотор хариу</span>
+      </div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
-      <span class="step-icon">🤝</span>
-      <h3>Ярилцлагад орно</h3>
-      <p>Компанитай шууд холбогдож, ярилцлагад орно. Хялбар, хурдан!</p>
+      <span class="step-icon">🎯</span>
+      <h3>Тохирох ажил санал болгоно</h3>
+      <p>Таны мэдлэг, туршлага, хүсэлтэд тохирсон ажлын байрнуудыг санал болгоно.</p>
     </div>
     <div class="step">
       <div class="step-num">04</div>
-      <span class="step-icon">⭐</span>
-      <h3>Ажилд орно</h3>
-      <p>Тохирсон ажлын байрандаа орж, карьераа ахиул!</p>
+      <span class="step-icon">🤝</span>
+      <h3>Ярилцлага → Ажилд орно</h3>
+      <p>Компанитай ярилцлагад орж, тохирсон ажлын байрандаа карьераа эхлүүл!</p>
     </div>
   </div>
-  <div style="text-align:center;margin-top:40px;">
-    <a href="https://wa.me/97672117170?text=Sain baina uu! Ajil haiж baina, tand burtguuleh gesen yum." 
+
+  <div style="text-align:center;margin-top:40px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+    <button onclick="openRegister()" style="display:inline-flex;align-items:center;gap:10px;background:var(--green);color:white;padding:16px 36px;border-radius:50px;font-size:17px;font-weight:600;border:none;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(15,110,86,0.35);">
+      ✍️ Ажил хайж бүртгүүлэх
+    </button>
+    <a href="https://wa.me/97672117170?text=Sain baina uu! Ajil haij baina, tand burgtuuleh gesen yum." 
        target="_blank"
        style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:16px 36px;border-radius:50px;font-size:17px;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);">
       <span style="font-size:22px">💬</span> WhatsApp-аар бүртгүүлэх
     </a>
-    <p style="margin-top:12px;color:#888;font-size:13px;">Шууд холбогдоно — 24 цагийн дотор хариу өгнө</p>
   </div>
+  <p style="text-align:center;margin-top:12px;color:#888;font-size:13px;">Шууд холбогдоно — 24 цагийн дотор хариу өгнө</p>
 </section>
 
 <!-- JOBS -->
@@ -1278,6 +1532,7 @@
       <input type="text" id="jobSearch" placeholder="Хайх..." oninput="filterJobs(this.value)"
         style="padding:10px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;width:200px;font-family:inherit;">
       <button class="add-job-btn" id="addJobBtn" onclick="openAddJob()">+ Ажил нэмэх</button>
+      <button id="importJobBtn" onclick="openImport()" style="display:none;padding:10px 20px;background:white;border:1.5px solid var(--green);color:var(--green);border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;align-items:center;gap:6px;">📥 Excel оруулах</button>
     </div>
   </div>
 
@@ -1445,6 +1700,122 @@
   <div class="footer-text">📞 7211-7170</div>
 </footer>
 
+<!-- ===== IMPORT MODAL ===== -->
+<div class="modal-overlay" id="importModal">
+  <div class="modal wide">
+    <button class="modal-close" onclick="closeModal('importModal')">✕</button>
+    <h2>📥 Excel/CSV оруулах</h2>
+    <p class="sub">Олон ажлын байрыг нэг дор нэмнэ</p>
+
+    <!-- Download template -->
+    <div style="background:linear-gradient(135deg,var(--dark),#0F3D2E);border-radius:14px;padding:20px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="color:var(--green-light);font-weight:600;margin-bottom:4px">📋 Template татах</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:13px">Загвар файлыг татаад дүүргэнэ үү</div>
+      </div>
+      <a href="smartajil_ajil_template.xlsx" download style="background:var(--green-light);color:var(--dark);padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;">⬇️ Template.xlsx</a>
+    </div>
+
+    <!-- Drop zone -->
+    <div id="importDropZone" style="border:2px dashed rgba(15,110,86,0.3);border-radius:14px;padding:40px;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--cream);"
+      onclick="document.getElementById('importFile').click()"
+      ondragover="event.preventDefault();this.style.borderColor='var(--green)';this.style.background='rgba(15,110,86,0.05)'"
+      ondragleave="this.style.borderColor='rgba(15,110,86,0.3)';this.style.background='var(--cream)'"
+      ondrop="handleImportDrop(event)">
+      <div style="font-size:48px;margin-bottom:12px">📂</div>
+      <div style="font-weight:600;color:var(--dark);margin-bottom:6px">Файлаа энд чирж тавь</div>
+      <div style="color:var(--muted);font-size:14px">эсвэл дарж сонгоно уу</div>
+      <div style="margin-top:8px;font-size:12px;color:#aaa">.xlsx · .xls · .csv файл</div>
+    </div>
+    <input type="file" id="importFile" accept=".xlsx,.xls,.csv" style="display:none" onchange="handleImportFile(this)">
+
+    <!-- Preview -->
+    <div id="importPreview" style="display:none;margin-top:16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+        <div style="font-weight:600;color:var(--dark)" id="importCount"></div>
+        <button onclick="clearImport()" style="background:none;border:none;color:#aaa;cursor:pointer;font-size:13px">✕ Цуцлах</button>
+      </div>
+      <div id="importTable" style="overflow-x:auto;border:1px solid #e2e8f0;border-radius:10px;max-height:240px;overflow-y:auto"></div>
+      <button class="modal-btn" style="margin-top:16px" onclick="confirmImport()">✅ Бүгдийг нэмэх →</button>
+    </div>
+
+    <div id="importSuccess" style="display:none;text-align:center;padding:20px">
+      <div style="font-size:48px;margin-bottom:12px">🎉</div>
+      <div style="font-size:18px;font-weight:600;color:var(--dark)" id="importSuccessMsg"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTER MODAL ===== -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal wide">
+    <button class="modal-close" onclick="closeModal('registerModal')">✕</button>
+
+    <!-- Step 1: Form -->
+    <div id="regStep1">
+      <h2>✍️ Ажил хайж бүртгүүлэх</h2>
+      <p class="sub">Мэдээллээ оруулна уу — 24 цагийн дотор холбогдоно</p>
+      <div class="form-error" id="regError">Нэр болон утасны дугаараа оруулна уу!</div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Овог, Нэр *</label>
+          <input type="text" id="regName" placeholder="Жишээ: Б.Болд">
+        </div>
+        <div class="form-group">
+          <label>Утасны дугаар *</label>
+          <input type="tel" id="regPhone" placeholder="9911 1234" maxlength="12">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Мэргэжил / Чиглэл</label>
+          <input type="text" id="regProf" placeholder="Жишээ: Нягтлан, Програмист">
+        </div>
+        <div class="form-group">
+          <label>Туршлага</label>
+          <select id="regExp" style="width:100%;padding:11px 14px;border:1.5px solid rgba(15,110,86,0.2);border-radius:10px;font-size:15px;font-family:inherit;outline:none;color:var(--text);">
+            <option value="0">Туршлагагүй</option>
+            <option value="1">1 жилээс бага</option>
+            <option value="2">1–3 жил</option>
+            <option value="3">3–5 жил</option>
+            <option value="4">5+ жил</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Хүссэн цалин <small style="color:#aaa">(заавал биш)</small></label>
+        <input type="text" id="regSalary" placeholder="Жишээ: 1.5–2 сая">
+      </div>
+
+      <div class="form-group">
+        <label>Нэмэлт мэдээлэл <small style="color:#aaa">(заавал биш)</small></label>
+        <textarea id="regNote" rows="2" style="width:100%;border:1.5px solid rgba(15,110,86,0.2);border-radius:10px;padding:11px 14px;font-size:15px;font-family:inherit;resize:vertical;outline:none;" placeholder="CV линк, онцлог чадвар гэх мэт..."></textarea>
+      </div>
+
+      <button class="modal-btn" onclick="submitRegister()">✅ Бүртгүүлэх →</button>
+
+      <p style="text-align:center;font-size:13px;color:#aaa;margin-top:12px">Эсвэл <a href="https://wa.me/97672117170" target="_blank" style="color:#25D366;font-weight:600">WhatsApp-аар</a> шууд холбогдоно уу</p>
+    </div>
+
+    <!-- Step 2: Success -->
+    <div id="regStep2" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:64px;margin-bottom:16px;animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both">🎉</div>
+      <h2 style="font-family:'Playfair Display',serif;margin-bottom:8px">Амжилттай бүртгэгдлээ!</h2>
+      <p style="color:var(--muted);font-size:15px;line-height:1.6;margin-bottom:24px">Манай менежер <strong id="regNameDisplay"></strong> танд<br>24 цагийн дотор холбогдоно.</p>
+      <div style="background:linear-gradient(135deg,var(--dark),#0F3D2E);border-radius:16px;padding:20px;color:white;margin-bottom:20px">
+        <div style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:4px">Менежертэй яаралтай холбогдох</div>
+        <a href="tel:72117170" style="font-size:28px;font-weight:700;color:var(--green-light);text-decoration:none;font-family:'Playfair Display',serif">7211-7170</a>
+      </div>
+      <a href="https://wa.me/97672117170" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:15px">
+        💬 WhatsApp-аар холбогдох
+      </a>
+    </div>
+  </div>
+</div>
+
 <!-- ===== LOGIN MODAL ===== -->
 <div class="modal-overlay" id="loginModal">
   <div class="modal">
@@ -1527,31 +1898,71 @@
 
 <!-- ===== PORTFOLIO ADD MODAL ===== -->
 <div class="modal-overlay" id="addPortfolioModal">
-  <div class="modal">
+  <div class="modal wide">
     <button class="modal-close" onclick="closeModal('addPortfolioModal')">✕</button>
-    <h2 style="margin:0 0 4px">🖼️ Ажил нэмэх</h2>
+    <h2 style="margin:0 0 4px">📁 Ажил нэмэх</h2>
     <p style="color:#888;font-size:14px;margin:0 0 20px">Portfolio-доо шинэ ажил нэмнэ</p>
     <div class="form-error" id="pfError">Гарчиг болон ангилал сонгоно уу!</div>
+
     <div class="form-group">
       <label>Гарчиг</label>
-      <input type="text" id="pfTitle" placeholder="Жишээ: Nomiin delguuriin logo">
+      <input type="text" id="pfTitle" placeholder="Жишээ: Номын дэлгүүрийн лого">
     </div>
+
     <div class="form-group">
       <label>Ангилал</label>
-      <select id="pfCat" style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;">
+      <select id="pfCat" style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;outline:none;">
         <option value="">-- Сонгох --</option>
-        <option value="logo">Лого</option>
-        <option value="poster">Постер</option>
-        <option value="invite">Цахим урилга</option>
-        <option value="website">Вэбсайт</option>
-        <option value="qr">QR Код</option>
+        <option value="logo">✨ Лого</option>
+        <option value="poster">🎨 Постер</option>
+        <option value="invite">💌 Цахим урилга</option>
+        <option value="website">🌐 Вэбсайт</option>
+        <option value="qr">📱 QR Код</option>
       </select>
     </div>
+
+    <!-- File type selector -->
     <div class="form-group">
-      <label>Зургийн URL (Google Drive, Imgur гэх мэт)</label>
-      <input type="text" id="pfImg" placeholder="https://i.imgur.com/...">
-      <small style="color:#999;font-size:12px;margin-top:4px;display:block;">Зургаа Imgur.com-д upload хийгээд холбоосыг оруулна уу</small>
+      <label>Файлын төрөл</label>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px">
+        <button type="button" class="pf-type-btn active" onclick="selectPfType('image',this)" data-type="image" style="padding:10px 4px;border-radius:10px;border:1.5px solid var(--green);background:rgba(15,110,86,0.08);color:var(--green);font-size:13px;cursor:pointer;font-family:inherit;font-weight:500">🖼 Зураг</button>
+        <button type="button" class="pf-type-btn" onclick="selectPfType('upload',this)" data-type="upload" style="padding:10px 4px;border-radius:10px;border:1.5px solid #e2e8f0;background:white;color:#555;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500">📤 Upload</button>
+        <button type="button" class="pf-type-btn" onclick="selectPfType('pdf',this)" data-type="pdf" style="padding:10px 4px;border-radius:10px;border:1.5px solid #e2e8f0;background:white;color:#555;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500">📄 PDF</button>
+        <button type="button" class="pf-type-btn" onclick="selectPfType('video',this)" data-type="video" style="padding:10px 4px;border-radius:10px;border:1.5px solid #e2e8f0;background:white;color:#555;font-size:13px;cursor:pointer;font-family:inherit;font-weight:500">🎬 Видео</button>
+      </div>
     </div>
+
+    <!-- Image URL -->
+    <div id="pf-panel-image" class="form-group">
+      <label>Зургийн URL <small style="color:#aaa">(Imgur, Google Drive гэх мэт)</small></label>
+      <input type="text" id="pfImg" placeholder="https://i.imgur.com/...">
+      <small style="color:#999;font-size:12px;margin-top:4px;display:block">Зургаа <a href="https://imgur.com" target="_blank" style="color:var(--green)">imgur.com</a>-д upload хийгээд холбоосыг оруулна уу</small>
+    </div>
+
+    <!-- Direct upload -->
+    <div id="pf-panel-upload" class="form-group" style="display:none">
+      <label>Компьютерээс файл сонгох</label>
+      <input type="file" id="pfFileUpload" accept="image/*,application/pdf" style="width:100%;padding:10px;border:1.5px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:14px;" onchange="handlePfUpload(this)">
+      <div id="pfUploadPreview" style="margin-top:8px;display:none">
+        <img id="pfUploadImg" style="max-width:100%;max-height:160px;border-radius:8px;object-fit:contain;" src="" alt="">
+        <div id="pfUploadFile" style="display:none;padding:12px;background:#f8f5ef;border-radius:8px;font-size:14px;color:#555"></div>
+      </div>
+    </div>
+
+    <!-- PDF link -->
+    <div id="pf-panel-pdf" class="form-group" style="display:none">
+      <label>PDF файлын холбоос</label>
+      <input type="text" id="pfPdf" placeholder="https://drive.google.com/...">
+      <small style="color:#999;font-size:12px;margin-top:4px;display:block">Google Drive-д байрлуулж, "Хүн бүр харах" эрх нээнэ үү</small>
+    </div>
+
+    <!-- Video -->
+    <div id="pf-panel-video" class="form-group" style="display:none">
+      <label>YouTube / видео холбоос</label>
+      <input type="text" id="pfVideo" placeholder="https://youtube.com/watch?v=...">
+      <small style="color:#999;font-size:12px;margin-top:4px;display:block">YouTube, TikTok, эсвэл бусад видео холбоос</small>
+    </div>
+
     <button class="modal-btn" onclick="savePortfolio()">Нэмэх →</button>
   </div>
 </div>
@@ -1866,6 +2277,171 @@ function doSearch(){
   }, 600);
 }
 
+// ---- EXCEL IMPORT ----
+var importData = [];
+
+function openImport(){
+  importData=[];
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importSuccess').style.display='none';
+  document.getElementById('importDropZone').style.display='block';
+  document.getElementById('importFile').value='';
+  openModal('importModal');
+}
+
+function handleImportDrop(e){
+  e.preventDefault();
+  document.getElementById('importDropZone').style.borderColor='rgba(15,110,86,0.3)';
+  document.getElementById('importDropZone').style.background='var(--cream)';
+  var file=e.dataTransfer.files[0];
+  if(file) processImportFile(file);
+}
+
+function handleImportFile(input){
+  if(input.files[0]) processImportFile(input.files[0]);
+}
+
+function processImportFile(file){
+  var reader=new FileReader();
+  reader.onload=function(e){
+    try {
+      var data=new Uint8Array(e.target.result);
+      var wb=XLSX.read(data,{type:'array'});
+      var ws=wb.Sheets[wb.SheetNames[0]];
+      var rows=XLSX.utils.sheet_to_json(ws,{defval:''});
+      if(!rows.length){alert('Файл хоосон байна!');return;}
+      importData=rows.map(function(r,i){
+        // Support both Mongolian and English column names
+        return {
+          id: Date.now()+i,
+          company: r['Байгууллагын нэр *']||r['Байгууллагын нэр']||r['company']||r['Company']||'',
+          title:   r['Ажлын байрны нэр *']||r['Ажлын байрны нэр']||r['title']||r['Title']||'',
+          location:r['Байршил']||r['location']||'Улаанбаатар',
+          salary:  r['Цалин']||r['salary']||'',
+          type:    r['Ажлын төрөл']||r['type']||'Бүтэн цагийн',
+          tags:    String(r['Тагнууд (таслалаар)']||r['tags']||'').split(',').map(function(t){return t.trim();}).filter(Boolean),
+          color:   r['Лого өнгө (hex)']||r['color']||'#1D9E75',
+          initials:''
+        };
+      }).filter(function(r){return r.company&&r.title;});
+      importData.forEach(function(r){r.initials=getInitials(r.company);});
+      showImportPreview();
+    } catch(err){alert('Файл уншихад алдаа гарлаа. Template ашиглана уу.');}
+  };
+  reader.readAsArrayBuffer(file);
+}
+
+function showImportPreview(){
+  document.getElementById('importDropZone').style.display='none';
+  document.getElementById('importCount').textContent='✅ '+importData.length+' ажлын байр олдлоо';
+  var html='<table style="width:100%;border-collapse:collapse;font-size:13px">';
+  html+='<thead><tr style="background:var(--cream)">';
+  ['Байгууллага','Ажлын байр','Байршил','Цалин','Төрөл'].forEach(function(h){
+    html+='<th style="padding:8px 12px;text-align:left;border-bottom:1px solid #e2e8f0;white-space:nowrap;color:var(--muted);font-weight:500">'+h+'</th>';
+  });
+  html+='</tr></thead><tbody>';
+  importData.forEach(function(r,i){
+    html+='<tr style="background:'+(i%2===0?'white':'var(--cream)')+'">'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #f0f0f0"><strong>'+r.company+'</strong></td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #f0f0f0">'+r.title+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #f0f0f0">'+r.location+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #f0f0f0">'+r.salary+'</td>'+
+      '<td style="padding:8px 12px;border-bottom:1px solid #f0f0f0">'+r.type+'</td>'+
+      '</tr>';
+  });
+  html+='</tbody></table>';
+  document.getElementById('importTable').innerHTML=html;
+  document.getElementById('importPreview').style.display='block';
+}
+
+function clearImport(){
+  importData=[];
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importDropZone').style.display='block';
+  document.getElementById('importFile').value='';
+}
+
+function confirmImport(){
+  if(!importData.length)return;
+  var existing=getJobs();
+  var combined=importData.concat(existing);
+  saveJobs(combined);
+  document.getElementById('importPreview').style.display='none';
+  document.getElementById('importDropZone').style.display='none';
+  document.getElementById('importSuccessMsg').textContent=importData.length+' ажлын байр амжилттай нэмэгдлээ! 🎉';
+  document.getElementById('importSuccess').style.display='block';
+  renderJobs();
+  setTimeout(function(){closeModal('importModal');},2000);
+}
+
+// ---- REGISTER ----
+function openRegister(){
+  ['regName','regPhone','regProf','regSalary','regNote'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('regExp').value='0';
+  document.getElementById('regError').classList.remove('show');
+  document.getElementById('regStep1').style.display='block';
+  document.getElementById('regStep2').style.display='none';
+  openModal('registerModal');
+}
+function submitRegister(){
+  var name=document.getElementById('regName').value.trim();
+  var phone=document.getElementById('regPhone').value.trim();
+  if(!name||!phone){document.getElementById('regError').classList.add('show');return;}
+  var prof=document.getElementById('regProf').value.trim();
+  var exp=document.getElementById('regExp').options[document.getElementById('regExp').selectedIndex].text;
+  var salary=document.getElementById('regSalary').value.trim();
+  var note=document.getElementById('regNote').value.trim();
+  // Save to localStorage
+  var regs=JSON.parse(localStorage.getItem('smartajil_regs')||'[]');
+  regs.push({id:Date.now(),name:name,phone:phone,prof:prof,exp:exp,salary:salary,note:note,date:new Date().toLocaleString('mn-MN')});
+  localStorage.setItem('smartajil_regs',JSON.stringify(regs));
+  // Show success
+  document.getElementById('regNameDisplay').textContent=name;
+  document.getElementById('regStep1').style.display='none';
+  document.getElementById('regStep2').style.display='block';
+  // WhatsApp auto message
+  var msg='🆕 Шинэ бүртгэл!\n👤 '+name+'\n📞 '+phone+(prof?'\n💼 '+prof:'')+(exp?'\n📅 '+exp:'')+(salary?'\n💰 '+salary:'')+(note?'\n📝 '+note:'');
+  setTimeout(function(){window.open('https://wa.me/97672117170?text='+encodeURIComponent(msg),'_blank');},1500);
+}
+
+// ---- PORTFOLIO FILE TYPE ----
+var pfCurrentType = 'image';
+var pfUploadData = null;
+
+function selectPfType(type, btn){
+  pfCurrentType = type;
+  document.querySelectorAll('.pf-type-btn').forEach(function(b){
+    b.style.border='1.5px solid #e2e8f0';b.style.background='white';b.style.color='#555';
+  });
+  btn.style.border='1.5px solid var(--green)';btn.style.background='rgba(15,110,86,0.08)';btn.style.color='var(--green)';
+  ['image','upload','pdf','video'].forEach(function(t){
+    document.getElementById('pf-panel-'+t).style.display=(t===type)?'block':'none';
+  });
+}
+
+function handlePfUpload(input){
+  var file=input.files[0]; if(!file)return;
+  pfUploadData=null;
+  var preview=document.getElementById('pfUploadPreview');
+  var imgEl=document.getElementById('pfUploadImg');
+  var fileEl=document.getElementById('pfUploadFile');
+  preview.style.display='block';
+  if(file.type.startsWith('image/')){
+    var reader=new FileReader();
+    reader.onload=function(e){pfUploadData=e.target.result;imgEl.src=e.target.result;imgEl.style.display='block';fileEl.style.display='none';};
+    reader.readAsDataURL(file);
+  } else if(file.type==='application/pdf'){
+    var reader2=new FileReader();
+    reader2.onload=function(e){pfUploadData=e.target.result;imgEl.style.display='none';fileEl.style.display='block';fileEl.innerHTML='📄 '+file.name+' <span style="color:#0F6E56;font-size:12px">('+Math.round(file.size/1024)+'KB)</span>';};
+    reader2.readAsDataURL(file);
+  }
+}
+
+function getYoutubeId(url){
+  var m=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
+  return m?m[1]:null;
+}
+
 // ---- PORTFOLIO ----
 function renderPortfolio(){
   var grid = document.getElementById('portfolioGrid');
@@ -1876,39 +2452,52 @@ function renderPortfolio(){
   empty.style.display = 'none';
   grid.innerHTML = items.map(function(p){
     var del = isAdmin ? '<button class="pf-del" onclick="deletePortfolio('+p.id+')">&#x2715;</button>' : '';
-    var img = p.img
-      ? '<img class="pf-img" src="'+p.img+'" alt="'+p.title+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
-        +'<div class="pf-img-placeholder" style="display:none">'+CAT_ICONS[p.cat]+'</div>'
-      : '<div class="pf-img-placeholder">'+CAT_ICONS[p.cat]+'</div>';
-    return '<div class="pf-card">'+img+'<div class="pf-info">'+del+
+    var media = '';
+    if(p.type==='video' && p.videoId){
+      media = '<div style="width:100%;aspect-ratio:4/3;overflow:hidden;background:#000"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+p.videoId+'" frameborder="0" allowfullscreen style="display:block"></iframe></div>';
+    } else if(p.type==='pdf' && p.pdfUrl){
+      media = '<a href="'+p.pdfUrl+'" target="_blank" style="display:block;text-decoration:none"><div class="pf-img-placeholder" style="background:linear-gradient(135deg,#fee2e2,#fca5a5)">📄</div></a>';
+    } else if(p.img){
+      media = '<img class="pf-img" src="'+p.img+'" alt="'+p.title+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+            +'<div class="pf-img-placeholder" style="display:none">'+CAT_ICONS[p.cat]+'</div>';
+    } else {
+      media = '<div class="pf-img-placeholder">'+CAT_ICONS[p.cat]+'</div>';
+    }
+    var typeIcon = p.type==='pdf'?'📄 PDF':p.type==='video'?'🎬 Видео':'';
+    return '<div class="pf-card">'+media+'<div class="pf-info">'+del+
+      (typeIcon?'<span style="font-size:11px;color:#aaa;float:right">'+typeIcon+'</span>':'')+
       '<div class="pf-title">'+p.title+'</div>'+
       '<span class="pf-cat">'+(CAT_LABELS[p.cat]||p.cat)+'</span>'+
       '</div></div>';
   }).join('');
 }
 
-function filterPortfolio(cat, btn){
-  pfFilter = cat;
-  document.querySelectorAll('.pf-tab').forEach(function(b){b.classList.remove('active');});
-  btn.classList.add('active');
-  renderPortfolio();
-}
-
 function openAddPortfolio(){
-  document.getElementById('pfTitle').value = '';
-  document.getElementById('pfCat').value = '';
-  document.getElementById('pfImg').value = '';
+  ['pfTitle','pfImg','pfPdf','pfVideo'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('pfCat').value='';
   document.getElementById('pfError').classList.remove('show');
+  pfUploadData=null;
+  document.getElementById('pfUploadPreview').style.display='none';
+  document.getElementById('pfFileUpload').value='';
+  selectPfType('image',document.querySelector('.pf-type-btn[data-type="image"]'));
   openModal('addPortfolioModal');
 }
 
 function savePortfolio(){
-  var title = document.getElementById('pfTitle').value.trim();
-  var cat   = document.getElementById('pfCat').value;
-  var img   = document.getElementById('pfImg').value.trim();
-  if(!title || !cat){document.getElementById('pfError').classList.add('show');return;}
-  var items = getPortfolio();
-  items.unshift({id:Date.now(), title:title, cat:cat, img:img});
+  var title=document.getElementById('pfTitle').value.trim();
+  var cat=document.getElementById('pfCat').value;
+  if(!title||!cat){document.getElementById('pfError').classList.add('show');return;}
+  var item={id:Date.now(),title:title,cat:cat,type:pfCurrentType};
+  if(pfCurrentType==='image'){item.img=document.getElementById('pfImg').value.trim();}
+  else if(pfCurrentType==='upload'){item.img=pfUploadData||'';}
+  else if(pfCurrentType==='pdf'){item.pdfUrl=document.getElementById('pfPdf').value.trim();}
+  else if(pfCurrentType==='video'){
+    var vid=document.getElementById('pfVideo').value.trim();
+    item.videoId=getYoutubeId(vid)||vid;
+    item.videoUrl=vid;
+  }
+  var items=getPortfolio();
+  items.unshift(item);
   savePortfolio2(items);
   closeModal('addPortfolioModal');
   renderPortfolio();
@@ -1954,74 +2543,18 @@ function doLogin(){var pw=document.getElementById('loginPassword').value;if(pw==
 function activateAdmin(){
   ['adminBar','adminNavBtn','addJobBtn'].forEach(function(id){document.getElementById(id).classList.add('visible');});
   document.getElementById('addPortfolioBtn').style.display='block';
+  document.getElementById('importJobBtn').style.display='flex';
   renderJobs();
   renderPortfolio();
-
-  // Load registrations for admin
-  window.loadRegs = function() {
-    var list = document.getElementById('regsList');
-    if(!list) return;
-    if(window.loadRegistrations) {
-      list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>';
-      window.loadRegistrations(function(regs) {
-        if(!regs.length) {
-          list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Одоохондоо бүртгэл байхгүй</p>';
-          return;
-        }
-        list.innerHTML = regs.map(function(r) {
-          var icon = r.type === 'zahialga' ? '🛒' : '📨';
-          var date = r.createdAt ? new Date(r.createdAt.seconds*1000).toLocaleString('mn-MN') : '';
-          return '<div style="background:#f8fafc;border-radius:10px;padding:12px 14px;border-left:3px solid #0F6E56;">' +
-            '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
-            '<strong style="font-size:14px;">' + icon + ' ' + (r.name||'') + '</strong>' +
-            '<span style="font-size:12px;color:#999;">' + date + '</span></div>' +
-            '<div style="font-size:13px;color:#555;">' +
-            '📞 ' + (r.phone||'') +
-            (r.service ? ' &nbsp;|&nbsp; 🛍️ ' + r.service + ' ' + (r.price||'') : '') +
-            (r.job ? ' &nbsp;|&nbsp; 💼 ' + r.job : '') +
-            (r.note ? '<br>📝 ' + r.note : '') +
-            '</div></div>';
-        }).join('');
-      });
-    }
-  };
 }
 function adminLogout(){
   isAdmin=false;
   ['adminBar','adminNavBtn','addJobBtn'].forEach(function(id){document.getElementById(id).classList.remove('visible');});
   document.getElementById('addPortfolioBtn').style.display='none';
+  document.getElementById('importJobBtn').style.display='none';
   document.getElementById('adminSettings').classList.remove('visible');
   renderJobs();
   renderPortfolio();
-
-  // Load registrations for admin
-  window.loadRegs = function() {
-    var list = document.getElementById('regsList');
-    if(!list) return;
-    if(window.loadRegistrations) {
-      list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>';
-      window.loadRegistrations(function(regs) {
-        if(!regs.length) {
-          list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Одоохондоо бүртгэл байхгүй</p>';
-          return;
-        }
-        list.innerHTML = regs.map(function(r) {
-          var icon = r.type === 'zahialga' ? '🛒' : '📨';
-          var date = r.createdAt ? new Date(r.createdAt.seconds*1000).toLocaleString('mn-MN') : '';
-          return '<div style="background:#f8fafc;border-radius:10px;padding:12px 14px;border-left:3px solid #0F6E56;">' +
-            '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
-            '<strong style="font-size:14px;">' + icon + ' ' + (r.name||'') + '</strong>' +
-            '<span style="font-size:12px;color:#999;">' + date + '</span></div>' +
-            '<div style="font-size:13px;color:#555;">' +
-            '📞 ' + (r.phone||'') +
-            (r.service ? ' &nbsp;|&nbsp; 🛍️ ' + r.service + ' ' + (r.price||'') : '') +
-            (r.job ? ' &nbsp;|&nbsp; 💼 ' + r.job : '') +
-            (r.note ? '<br>📝 ' + r.note : '') +
-            '</div></div>';
-        }).join('');
-      });
-    }
-  };
 }
 
 // ---- ADD JOB ----
@@ -2055,18 +2588,9 @@ function openOrder(id){
 function submitOrder(){
   var name=document.getElementById('oName').value.trim();
   var phone=document.getElementById('oPhone').value.trim();
-  var note=document.getElementById('oNote').value.trim();
   if(!name||!phone){document.getElementById('orderError').classList.add('show');return;}
-  // Save to Firestore
   if(window.saveToFirestore){
-    window.saveToFirestore('registrations', {
-      type: 'zahialga',
-      name: name,
-      phone: phone,
-      note: note,
-      service: currentOrderService,
-      price: fmt(currentOrderPrice)
-    });
+    window.saveToFirestore('registrations',{type:'zahialga',name:name,phone:phone,service:SERVICES[currentOrderId]?SERVICES[currentOrderId].name:'',price:fmt(curPrice)});
   }
   var st = getSettings();
   var amt = fmt(curPrice);
@@ -2116,17 +2640,9 @@ function openApply(id){
 function submitApply(){
   var name=document.getElementById('aName').value.trim();
   var phone=document.getElementById('aPhone').value.trim();
-  var cv=document.getElementById('aCV').value.trim();
   if(!name||!phone){document.getElementById('applyError').classList.add('show');return;}
-  // Save to Firestore
   if(window.saveToFirestore){
-    window.saveToFirestore('registrations', {
-      type: 'urgudel',
-      name: name,
-      phone: phone,
-      cv: cv,
-      job: document.getElementById('applySubtitle').textContent
-    });
+    window.saveToFirestore('registrations',{type:'urgudel',name:name,phone:phone,job:document.getElementById('applySubtitle')?document.getElementById('applySubtitle').textContent:''});
   }
   document.getElementById('applyStep1').style.display='none';
   document.getElementById('applyStep2').style.display='block';
@@ -2135,6 +2651,23 @@ function submitApply(){
 // ---- INIT ----
 renderJobs();
 renderPortfolio();
+
+// ---- MOBILE MENU ----
+function toggleMobileMenu(){
+  var menu = document.getElementById('mobileMenu');
+  var btn = document.getElementById('hamburger');
+  var isOpen = menu.classList.contains('open');
+  if(isOpen){ closeMobileMenu(); } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 
 
