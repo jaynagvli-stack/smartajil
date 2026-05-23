@@ -1,3 +1,2179 @@
-[2026-05-23 12:25] jaynaa: 
-[2026-05-23 12:25] jaynaa: 
-[2026-05-23 12:25] jaynaa: 
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Ajil - Mongoliin hamgiin uhaalaG ajlin bairni platform. 500+ ajlin bair, 200+ kompani. Odoo burgtuul!">
+  <meta name="keywords" content="ajil, ajlin bair, mongol, ulaanbaatar, smart ajil, logo, poster, website">
+  <meta property="og:title" content="Smart Ajil - Ajil Ol, Hunee Ol">
+  <meta property="og:description" content="Mongoliin hamgiin uhaalaG ajlin bairni platform. 500+ ajlin bair!">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://smartajil.netlify.app">
+<title>Smart Ажил — Ухаалаг ажлын байрны платформ</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0F6E56;
+    --green-mid: #1D9E75;
+    --green-light: #5DCAA5;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --cream: #F8F5EF;
+    --dark: #0D1F1A;
+    --text: #1a1a1a;
+    --muted: #6b7c78;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px;
+    height: 72px;
+    background: rgba(248,245,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(15,110,86,0.12);
+  }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 38px; height: 38px;
+    background: var(--green-mid);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+  }
+
+  .nav-logo-text span:first-child { color: var(--green); }
+  .nav-logo-text span:last-child { color: var(--text); }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 15px; font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+
+  .nav-cta {
+    background: var(--green);
+    color: white !important;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green-mid) !important; color: white !important; }
+
+  /* Admin nav button */
+  .admin-nav-btn {
+    background: none; border: 1px solid rgba(15,110,86,0.3);
+    color: var(--green) !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 14px !important;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    display: none;
+  }
+  .admin-nav-btn:hover { background: rgba(15,110,86,0.08); }
+  .admin-nav-btn.visible { display: block; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 120px 60px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #0D1F1A 0%, #0F3D2E 50%, #1D6B52 100%);
+  }
+
+  .hero-circles {
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(93,202,165,0.15);
+    box-shadow:
+      inset 0 0 0 60px rgba(93,202,165,0.04),
+      inset 0 0 0 120px rgba(93,202,165,0.03),
+      inset 0 0 0 200px rgba(93,202,165,0.02);
+  }
+
+  .hero-dots {
+    position: absolute; bottom: 60px; left: 60px;
+    display: grid; grid-template-columns: repeat(8,1fr); gap: 16px;
+    opacity: 0.3;
+  }
+  .hero-dots span {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--green-light);
+    display: block;
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 680px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(93,202,165,0.15);
+    border: 1px solid rgba(93,202,165,0.3);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 13px; color: var(--green-light);
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--green-light);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity:1; transform:scale(1); }
+    50% { opacity:0.5; transform:scale(1.4); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 24px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green-light);
+  }
+
+  .hero p {
+    font-size: 18px; line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 48px;
+    max-width: 500px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--green-light);
+    color: var(--dark);
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-size: 16px; font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(93,202,165,0.3); }
+
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: white;
+    padding: 16px 36px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--green-light); background: rgba(93,202,165,0.08); }
+
+  .hero-stats {
+    position: absolute; right: 60px; bottom: 80px; z-index: 2;
+    display: flex; flex-direction: column; gap: 16px;
+    animation: fadeLeft 0.8s 0.4s ease both;
+  }
+
+  .stat-card {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 20px 28px;
+    text-align: center;
+  }
+
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 700;
+    color: var(--green-light);
+  }
+
+  .stat-card .label {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(24px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes fadeLeft {
+    from { opacity:0; transform:translateX(24px); }
+    to { opacity:1; transform:translateX(0); }
+  }
+
+  /* HOW IT WORKS */
+  .section { padding: 100px 60px; }
+
+  .section-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--green-mid); font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700; line-height: 1.2;
+    margin-bottom: 60px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2px;
+    background: rgba(15,110,86,0.08);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .step {
+    background: var(--cream);
+    padding: 48px 36px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: rgba(15,110,86,0.08);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .step-icon {
+    font-size: 32px; margin-bottom: 16px;
+    display: block;
+  }
+
+  .step h3 {
+    font-size: 20px; font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--green);
+  }
+
+  .step p { font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+  /* JOBS */
+  .jobs-section { background: white; padding: 100px 60px; }
+
+  .jobs-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 48px; flex-wrap: wrap; gap: 16px;
+  }
+
+  .jobs-header-text .section-title { margin-bottom: 0; }
+
+  .add-job-btn {
+    background: var(--green);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    display: none; align-items: center; gap: 8px;
+    transition: background 0.2s;
+  }
+  .add-job-btn:hover { background: var(--green-mid); }
+  .add-job-btn.visible { display: flex; }
+
+  .jobs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .job-card {
+    border: 1px solid rgba(15,110,86,0.12);
+    border-radius: 16px;
+    padding: 28px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    cursor: pointer;
+    background: white;
+    position: relative;
+  }
+
+  .job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(15,110,86,0.1);
+    border-color: var(--green-mid);
+  }
+
+  .job-company {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .company-logo {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 700; color: white;
+    flex-shrink: 0;
+  }
+
+  .company-name { font-size: 14px; color: var(--muted); }
+  .job-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+
+  .job-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tag {
+    background: var(--cream);
+    border-radius: 100px;
+    padding: 4px 14px;
+    font-size: 13px; color: var(--muted);
+  }
+  .tag.green {
+    background: rgba(29,158,117,0.1);
+    color: var(--green);
+  }
+
+  .job-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    padding-top: 16px;
+  }
+
+  .salary { font-size: 18px; font-weight: 600; color: var(--green); }
+  .apply-btn {
+    background: var(--green);
+    color: white;
+    border: none; border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 14px; cursor: pointer;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .apply-btn:hover { background: var(--green-mid); }
+
+  /* Delete button on job card */
+  .delete-job-btn {
+    position: absolute; top: 12px; right: 12px;
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    border-radius: 6px;
+    width: 28px; height: 28px;
+    font-size: 14px;
+    cursor: pointer;
+    display: none; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .delete-job-btn:hover { background: #fca5a5; }
+  .delete-job-btn.visible { display: flex; }
+
+  /* SERVICES */
+  .services-section {
+    background: var(--cream);
+    padding: 100px 60px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 60px;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 32px;
+    border: 1px solid rgba(15,110,86,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--green), var(--green-light));
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(15,110,86,0.12);
+  }
+
+  .service-icon {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 20px; font-weight: 600;
+    margin-bottom: 10px; color: var(--dark);
+  }
+
+  .service-card p {
+    font-size: 15px; line-height: 1.65;
+    color: var(--muted); margin-bottom: 24px;
+  }
+
+  .service-tag {
+    display: inline-flex; align-items: center;
+    background: rgba(29,158,117,0.1);
+    color: var(--green);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 13px; font-weight: 500;
+  }
+
+  .service-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--green); font-weight: 500; font-size: 15px;
+    text-decoration: none;
+    transition: gap 0.2s;
+    border: none; background: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    padding: 0;
+  }
+  .service-cta:hover { gap: 10px; }
+
+
+  .why-section { padding: 100px 60px; }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+    margin-top: 60px;
+  }
+
+  .feature {
+    padding: 36px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid rgba(15,110,86,0.08);
+    transition: transform 0.2s;
+  }
+
+  .feature:hover { transform: translateY(-4px); }
+
+  .feature-icon {
+    width: 56px; height: 56px;
+    background: rgba(29,158,117,0.1);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; margin-bottom: 20px;
+  }
+
+  .feature h3 { font-size: 20px; font-weight: 500; margin-bottom: 10px; }
+  .feature p { font-size: 15px; line-height: 1.65; color: var(--muted); }
+
+  /* CTA */
+  .cta-section {
+    background: linear-gradient(135deg, var(--dark) 0%, #0F3D2E 100%);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 700; color: white;
+    margin-bottom: 20px;
+  }
+
+  .cta-section h2 em { font-style: normal; color: var(--green-light); }
+
+  .cta-section p {
+    font-size: 18px; color: rgba(255,255,255,0.6);
+    margin-bottom: 48px;
+  }
+
+  .cta-phone {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 700;
+    color: var(--green-light);
+    display: block; margin-bottom: 12px;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .cta-phone:hover { color: white; }
+
+  .cta-phone-label { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 48px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 48px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 24px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+  }
+  .footer-logo span:first-child { color: var(--green-light); }
+  .footer-logo span:last-child { color: rgba(255,255,255,0.7); }
+
+  .footer-text { font-size: 14px; color: rgba(255,255,255,0.3); }
+
+  /* Search bar */
+  .search-bar {
+    display: flex; gap: 0;
+    margin-top: 48px;
+    background: white;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    max-width: 560px;
+    animation: fadeUp 0.6s 0.35s ease both;
+  }
+
+  .search-bar input {
+    flex: 1; border: none; outline: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    background: transparent;
+    color: var(--text);
+  }
+
+  .search-bar button {
+    background: var(--green);
+    color: white; border: none;
+    border-radius: 10px;
+    padding: 12px 28px;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .search-bar button:hover { background: var(--green-mid); }
+
+  /* ===== MODAL OVERLAY ===== */
+  .modal-overlay {
+    position: fixed; inset: 0; z-index: 1000;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%; max-width: 480px;
+    transform: translateY(20px);
+    transition: transform 0.25s;
+    position: relative;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700;
+    margin-bottom: 8px; color: var(--dark);
+  }
+  .modal p.sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+
+  .modal-close {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--cream); border: none;
+    border-radius: 8px; width: 32px; height: 32px;
+    cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted);
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: #e5e0d8; }
+
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 13px; font-weight: 500;
+    color: var(--dark); margin-bottom: 6px;
+  }
+  .form-group input, .form-group select {
+    width: 100%;
+    border: 1.5px solid rgba(15,110,86,0.2);
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 15px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    outline: none;
+    background: white;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--green);
+  }
+  .form-group input[type="password"] { letter-spacing: 2px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .form-error {
+    background: #fee2e2; color: #dc2626;
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 14px; margin-bottom: 16px;
+    display: none;
+  }
+  .form-error.show { display: block; }
+
+  .modal-btn {
+    width: 100%;
+    background: var(--green);
+    color: white; border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 16px; font-weight: 500;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .modal-btn:hover { background: var(--green-mid); }
+
+  /* Admin bar */
+  .admin-bar {
+    display: none;
+    background: var(--dark);
+    color: white;
+    padding: 10px 60px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    position: relative; z-index: 99;
+    margin-top: 72px;
+  }
+  .admin-bar.visible { display: flex; }
+  .admin-bar-label {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--green-light);
+    font-weight: 500;
+  }
+  .admin-bar-label::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: var(--green-light);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .logout-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white; border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s;
+  }
+  .logout-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* Color picker row */
+  .color-options {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .color-opt {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .color-opt:hover { transform: scale(1.1); }
+  .color-opt.selected { border-color: var(--dark); }
+
+  /* Empty state */
+  .jobs-empty {
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--muted);
+  }
+  .jobs-empty .empty-icon { font-size: 48px; margin-bottom: 12px; }
+  .jobs-empty p { font-size: 16px; }
+
+  /* Admin add job modal wider */
+  .modal.wide { max-width: 560px; }
+
+  /* ===== ORDER / APPLY MODAL ===== */
+  .modal.order { max-width: 520px; }
+
+  .service-price-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(29,158,117,0.1);
+    border: 1px solid rgba(29,158,117,0.2);
+    color: var(--green);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-size: 14px; font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  /* Payment info box */
+  .payment-box {
+    background: linear-gradient(135deg, #0D1F1A, #0F3D2E);
+    border-radius: 16px;
+    padding: 28px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .payment-box::before {
+    content: '';
+    position: absolute; top: -40px; right: -40px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(93,202,165,0.2);
+  }
+  .payment-box-label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 8px;
+  }
+  .payment-box-account {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--green-light);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .payment-box-bank {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+  }
+  .payment-box-amount-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,0.06);
+    border-radius: 10px; padding: 14px 18px;
+  }
+  .payment-box-amount-label { font-size: 13px; color: rgba(255,255,255,0.5); }
+  .payment-box-amount-value {
+    font-size: 22px; font-weight: 700; color: white;
+  }
+  .payment-box-amount-value span { color: var(--green-light); }
+
+  .payment-steps {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .payment-step {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--muted);
+  }
+  .payment-step-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: rgba(29,158,117,0.15);
+    color: var(--green);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600;
+    flex-shrink: 0; margin-top: 1px;
+  }
+
+  /* Success state */
+  .order-success {
+    text-align: center; padding: 12px 0;
+  }
+  .order-success-icon {
+    font-size: 56px; margin-bottom: 16px; display: block;
+    animation: popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .order-success h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700;
+    margin-bottom: 8px; color: var(--dark);
+  }
+  .order-success p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+  .copy-btn {
+    background: none; border: 1px solid rgba(29,158,117,0.3);
+    color: var(--green); border-radius: 6px;
+    padding: 4px 10px; font-size: 12px;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s; margin-left: 8px;
+    vertical-align: middle;
+  }
+  .copy-btn:hover { background: rgba(29,158,117,0.08); }
+  .copy-btn.copied { background: var(--green); color: white; border-color: var(--green); }
+
+  /* Portfolio */
+  .pf-tab { padding:8px 20px;border-radius:50px;border:1.5px solid #e2e8f0;background:white;color:#555;cursor:pointer;font-size:14px;font-weight:500;font-family:inherit;transition:all 0.2s; }
+  .pf-tab:hover { border-color:#0F6E56;color:#0F6E56; }
+  .pf-tab.active { background:#0F6E56;color:white;border-color:#0F6E56; }
+  .pf-card { background:white;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.07);transition:transform 0.2s,box-shadow 0.2s;cursor:pointer; }
+  .pf-card:hover { transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+  .pf-img { width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f0f4f8; }
+  .pf-img-placeholder { width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#e8f5f0,#d1ede4);display:flex;align-items:center;justify-content:center;font-size:48px; }
+  .pf-info { padding:16px; }
+  .pf-title { font-weight:600;font-size:15px;margin-bottom:4px; }
+  .pf-cat { font-size:12px;color:#0F6E56;font-weight:500;background:#e8f5f0;padding:3px 10px;border-radius:50px;display:inline-block; }
+  .pf-del { float:right;background:none;border:none;color:#ccc;cursor:pointer;font-size:16px;padding:2px 6px; }
+  .pf-del:hover { color:#dc2626; }
+
+  /* Admin settings panel */
+  .admin-settings { background:white;border-radius:16px;padding:24px;margin:12px 16px;box-shadow:0 2px 12px rgba(0,0,0,0.08);display:none; }
+  .admin-settings.visible { display:block; }
+  .settings-grid { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+  @media(max-width:600px){ .settings-grid { grid-template-columns:1fr; } }
+
+  /* Payment tabs */
+  .pay-tabs {
+    display: flex; gap: 8px; margin: 16px 0 12px;
+  }
+  .pay-tab {
+    flex: 1; padding: 10px; border-radius: 10px;
+    border: 1.5px solid rgba(15,110,86,0.2);
+    background: white; color: var(--muted);
+    font-size: 14px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+  }
+  .pay-tab:hover { border-color: var(--green); color: var(--green); }
+  .pay-tab.active { background: var(--green); color: white; border-color: var(--green); }
+
+  /* WhatsApp Float Button */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .wa-btn {
+    width: 58px;
+    height: 58px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+  }
+  .wa-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 28px rgba(37,211,102,0.55);
+  }
+  .wa-btn svg { width: 30px; height: 30px; }
+  .wa-tooltip {
+    background: #1a1a2e;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: all 0.25s;
+    pointer-events: none;
+  }
+  .wa-float:hover .wa-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .wa-pulse {
+    position: absolute;
+    top: 0; right: 0;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    animation: waPulse 2s ease-out infinite;
+    z-index: -1;
+  }
+  @keyframes waPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.7); opacity: 0; }
+  }
+
+  /* ===== CHATBOT ===== */
+  .chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .chat-toggle {
+    width: 52px; height: 52px;
+    background: #0F6E56;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(15,110,86,0.4);
+    transition: transform 0.2s;
+    font-size: 22px;
+  }
+  .chat-toggle:hover { transform: scale(1.08); }
+  .chat-box {
+    width: 320px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 480px;
+  }
+  .chat-box.open { display: flex; }
+  .chat-header {
+    background: linear-gradient(135deg, #0F6E56, #1D9E75);
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+    color: white;
+  }
+  .chat-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .chat-header-info { flex: 1; }
+  .chat-header-name { font-weight: 600; font-size: 14px; }
+  .chat-header-status { font-size: 11px; opacity: 0.8; }
+  .chat-close-btn { background: none; border: none; color: white; cursor: pointer; font-size: 18px; opacity: 0.7; }
+  .chat-close-btn:hover { opacity: 1; }
+  .chat-messages {
+    flex: 1; overflow-y: auto;
+    padding: 16px; display: flex;
+    flex-direction: column; gap: 10px;
+    min-height: 280px; max-height: 320px;
+  }
+  .chat-msg {
+    max-width: 85%;
+    padding: 9px 13px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    word-break: break-word;
+  }
+  .chat-msg.bot {
+    background: #f0f4f8;
+    color: #1a1a2e;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+  }
+  .chat-msg.user {
+    background: #0F6E56;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-msg.typing {
+    background: #f0f4f8;
+    align-self: flex-start;
+    padding: 12px 16px;
+  }
+  .typing-dots { display: flex; gap: 4px; }
+  .typing-dots span {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #aaa;
+    animation: typingBounce 1.2s infinite;
+  }
+  .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes typingBounce {
+    0%,60%,100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+  .chat-quick-btns {
+    padding: 6px 12px 0;
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .chat-quick-btn {
+    background: #e8f5f0; color: #0F6E56;
+    border: 1px solid #c5e8dd;
+    border-radius: 50px; padding: 5px 12px;
+    font-size: 12px; cursor: pointer;
+    font-family: inherit; transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .chat-quick-btn:hover { background: #0F6E56; color: white; }
+  .chat-input-row {
+    padding: 10px 12px;
+    display: flex; gap: 8px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .chat-input {
+    flex: 1; padding: 9px 12px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 50px; font-size: 13px;
+    outline: none; font-family: inherit;
+  }
+  .chat-input:focus { border-color: #0F6E56; }
+  .chat-send {
+    width: 36px; height: 36px;
+    background: #0F6E56; color: white;
+    border: none; border-radius: 50%;
+    cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .chat-send:hover { background: #0a5240; }
+</style>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCaigmwdUgmW92af1cbnpJyvpmrRo6fK7A",
+      authDomain: "smartajil.firebaseapp.com",
+      projectId: "smartajil",
+      storageBucket: "smartajil.firebasestorage.app",
+      messagingSenderId: "943495989930",
+      appId: "1:943495989930:web:4121adae9ddd65f2021ed3"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Save registration (urgudel) to Firestore
+    window.saveToFirestore = async function(collectionName, data) {
+      try {
+        await addDoc(collection(db, collectionName), {
+          ...data,
+          createdAt: serverTimestamp()
+        });
+        return true;
+      } catch(e) {
+        console.error("Firestore error:", e);
+        return false;
+      }
+    };
+
+    // Load jobs from Firestore (company-added jobs)
+    window.loadFirestoreJobs = function(callback) {
+      const q = query(collection(db, "jobs"), orderBy("createdAt", "desc"));
+      onSnapshot(q, (snapshot) => {
+        const jobs = [];
+        snapshot.forEach(doc => jobs.push({id: doc.id, ...doc.data()}));
+        callback(jobs);
+      });
+    };
+
+    // Load company registrations for admin
+    window.loadRegistrations = function(callback) {
+      const q = query(collection(db, "registrations"), orderBy("createdAt", "desc"));
+      onSnapshot(q, (snapshot) => {
+        const regs = [];
+        snapshot.forEach(doc => regs.push({id: doc.id, ...doc.data()}));
+        callback(regs);
+      });
+    };
+
+    console.log("Firebase connected!");
+  </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">💼</div>
+    <div class="nav-logo-text">
+      <span>Smart</span><span>Ажил</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#jobs">Ажлын байр</a></li>
+    <li><a href="#services">Үйлчилгээ</a></li>
+    <li><a href="#how">Хэрхэн ажилладаг</a></li>
+    <li><a href="#why">Яагаад бид?</a></li>
+    <li><a href="#contact" class="nav-cta">Холбоо барих</a></li>
+    <li><button class="admin-nav-btn" id="adminNavBtn" onclick="openAdminLogin()">⚙️ Админ</button></li>
+  </ul>
+</nav>
+
+<!-- ADMIN BAR -->
+<div class="admin-bar" id="adminBar">
+  <div class="admin-bar-label">Админ горим идэвхтэй</div>
+  <button onclick="toggleAdminSettings()" style="background:rgba(255,255,255,0.15);border:none;color:white;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;">⚙️ Тохиргоо</button>
+  <button class="logout-btn" onclick="adminLogout()">Гарах</button>
+</div>
+<div id="adminSettings" style="display:none;background:white;padding:20px 24px;border-bottom:1px solid #e2e8f0;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:900px;margin:0 auto;">
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Утасны дугаар</label><input id="settPhone" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="7211-7170"></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Банкны данс</label><input id="settBank" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="5400133881"></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Дансны эзэн</label><input id="settOwner" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="Б.Жайнагүль"></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Банкны нэр</label><input id="settBankName" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="Хаан банк"></div>
+  </div>
+  <div style="text-align:center;margin-top:12px;">
+    <button onclick="saveSettings()" style="padding:9px 24px;background:#0F6E56;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;font-family:inherit;">Хадгалах</button>
+    <span id="settSaved" style="margin-left:10px;color:#0F6E56;font-size:13px;display:none;">✓ Хадгалагдлаа</span>
+  </div>
+
+  <!-- Registrations panel -->
+  <div style="margin-top:20px;border-top:1px solid #e2e8f0;padding-top:16px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <h4 style="margin:0;font-size:15px;">📋 Бүртгэлүүд</h4>
+      <button onclick="loadRegs()" style="padding:6px 14px;background:#f0f4f8;border:none;border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit;">🔄 Шинэчлэх</button>
+    </div>
+    <div id="regsList" style="max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;">
+      <p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="margin-top: 72px; margin-top: 0;">
+  <div class="hero-bg"></div>
+  <div class="hero-circles"></div>
+  <div class="hero-dots">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Монголын #1 ажлын байрны платформ</div>
+    <h1>Ухаалаг хайлт,<br><em>тохирох ажил</em></h1>
+    <p>Мэргэжлийн чадвараа нэгдүгээрт тавь. Smart Ажил танд хамгийн тохирох ажлын байрыг олж өгнө.</p>
+
+    <div class="search-bar">
+      <input type="text" id="heroSearch" placeholder="Ажлын байр, мэргэжил хайх..." onkeydown="if(event.key==='Enter')doSearch()">
+      <button onclick="doSearch()">🔍 Хайх</button>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat-card">
+      <div class="num">500+</div>
+      <div class="label">Ажлын байр</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">200+</div>
+      <div class="label">Байгууллага</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">10K+</div>
+      <div class="label">Ажилтан олдсон</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-label">Хэрхэн ажилладаг</div>
+  <div class="section-title">3 алхамаар<br>ажил олно</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <span class="step-icon">📝</span>
+      <h3>Бүртгүүл</h3>
+      <p>Өөрийн CV болон мэргэжлийн мэдээллээ оруул. Хэдхэн минутад бүртгэл дуусна.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <span class="step-icon">🎯</span>
+      <h3>Тохирох ажил хайх</h3>
+      <p>Манай ухаалаг систем таны ур чадварт тохирох ажлын байрыг санал болгоно.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <span class="step-icon">🤝</span>
+      <h3>Ярилцлагад орно</h3>
+      <p>Компанитай шууд холбогдож, ярилцлагад орно. Хялбар, хурдан!</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <span class="step-icon">⭐</span>
+      <h3>Ажилд орно</h3>
+      <p>Тохирсон ажлын байрандаа орж, карьераа ахиул!</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:40px;">
+    <a href="https://wa.me/97672117170?text=Sain baina uu! Ajil haiж baina, tand burtguuleh gesen yum." 
+       target="_blank"
+       style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:16px 36px;border-radius:50px;font-size:17px;font-weight:600;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);">
+      <span style="font-size:22px">💬</span> WhatsApp-аар бүртгүүлэх
+    </a>
+    <p style="margin-top:12px;color:#888;font-size:13px;">Шууд холбогдоно — 24 цагийн дотор хариу өгнө</p>
+  </div>
+</section>
+
+<!-- JOBS -->
+<section class="jobs-section" id="jobs">
+  <div class="jobs-header">
+    <div class="jobs-header-text">
+      <div class="section-label">Нээлттэй ажлын байр</div>
+      <div class="section-title">Одоо нээлттэй<br>ажлын байрнууд</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <input type="text" id="jobSearch" placeholder="Хайх..." oninput="filterJobs(this.value)"
+        style="padding:10px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;width:200px;font-family:inherit;">
+      <button class="add-job-btn" id="addJobBtn" onclick="openAddJob()">+ Ажил нэмэх</button>
+    </div>
+  </div>
+
+  <div class="jobs-grid" id="jobsGrid">
+    <!-- Jobs rendered by JS -->
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="section" id="portfolio">
+  <div class="section-label">Манай ажлууд</div>
+  <div class="section-title">Хийсэн ажлуудаас<br>жишээ харах</div>
+
+  <!-- Filter tabs -->
+  <div id="portfolioFilters" style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:32px;">
+    <button class="pf-tab active" onclick="filterPortfolio('all',this)">Бүгд</button>
+    <button class="pf-tab" onclick="filterPortfolio('logo',this)">Лого</button>
+    <button class="pf-tab" onclick="filterPortfolio('poster',this)">Постер</button>
+    <button class="pf-tab" onclick="filterPortfolio('invite',this)">Цахим урилга</button>
+    <button class="pf-tab" onclick="filterPortfolio('website',this)">Вэбсайт</button>
+    <button class="pf-tab" onclick="filterPortfolio('qr',this)">QR Код</button>
+  </div>
+
+  <div id="portfolioGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px;"></div>
+
+  <div id="portfolioEmpty" style="text-align:center;padding:60px 20px;color:#999;display:none;">
+    <div style="font-size:48px;margin-bottom:12px;">🖼️</div>
+    <p>Одоохондоо ажил нэмэгдээгүй байна</p>
+  </div>
+
+  <!-- Admin: Add portfolio item -->
+  <div id="addPortfolioBtn" style="display:none;text-align:center;margin-top:28px;">
+    <button onclick="openAddPortfolio()" style="padding:12px 28px;background:#0F6E56;color:white;border:none;border-radius:10px;font-size:15px;cursor:pointer;font-weight:500;">+ Ажил нэмэх</button>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-label">Бидний үйлчилгээ</div>
+  <div class="section-title">Таны бизнест хэрэгтэй<br>бүх зүйл нэг дороос</div>
+
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(29,158,117,0.1)">📱</div>
+      <h3>QR Код үүсгэх</h3>
+      <p>Вэбсайт, холбоо барих мэдээлэл, төлбөр болон бусад агуулгад зориулсан мэргэжлийн QR код хийж өгнө.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 25,000₮</span>
+        <button class="service-cta" onclick="openOrder(1)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(186,117,23,0.1)">✨</div>
+      <h3>Лого хийх</h3>
+      <p>Таны бизнесийн онцлогт тохирсон орчин үеийн, мэргэжлийн лого дизайн хийж өгнө.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 30,000–80,000₮</span>
+        <button class="service-cta" onclick="openOrder(2)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(83,52,137,0.1)">🎨</div>
+      <h3>Постер хийх</h3>
+      <p>Арга хэмжээ, сурталчилгаа, зар мэдэгдэлд зориулсан мэргэжлийн постер дизайн.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 35,000₮</span>
+        <button class="service-cta" onclick="openOrder(3)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(220,38,38,0.1)">💌</div>
+      <h3>Цахим урилга</h3>
+      <p>Хуримын урилга, төрсөн өдрийн мэндчилгээ, арга хэмжээний гоё цахим урилга үүсгэнэ.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 10,000–40,000₮</span>
+        <button class="service-cta" onclick="openOrder(4)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(26,115,232,0.1)">🌐</div>
+      <h3>Вэбсайт хийх</h3>
+      <p>Бизнесийн танилцуулга сайт, онлайн дэлгүүр, лэндинг хуудас — хурдан, хямд, мэргэжлийн.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 350,000–500,000₮</span>
+        <button class="service-cta" onclick="openOrder(5)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon" style="background:rgba(15,110,86,0.1)">📄</div>
+      <h3>Өргөдөл загвар</h3>
+      <p>Ажил хайгчдад зориулсан мэргэжлийн CV болон өргөдлийн загвар бэлтгэж өгнө.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <span class="service-tag">Үнэ: 10,000₮</span>
+        <button class="service-cta" onclick="openOrder(6)">Захиалах →</button>
+      </div>
+    </div>
+
+    <div class="service-card" style="background: linear-gradient(135deg, var(--dark), #0F3D2E); border-color: transparent;">
+      <div class="service-icon" style="background:rgba(93,202,165,0.15)">💬</div>
+      <h3 style="color:white">Өөр үйлчилгээ?</h3>
+      <p style="color:rgba(255,255,255,0.6)">Дээрх жагсаалтад байхгүй боловч таньд хэрэгтэй зүйл байвал бидэнтэй холбоо бар.</p>
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+        <a href="tel:72117170" style="display:inline-flex; align-items:center; gap:8px; background:var(--green-light); color:var(--dark); padding:10px 20px; border-radius:8px; font-weight:500; text-decoration:none; font-size:14px;">📞 Залгах</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section" id="why">
+  <div class="section-label">Яагаад бид?</div>
+  <div class="section-title">Smart Ажил-ийн<br>давуу тал</div>
+
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">⚡</div>
+      <h3>Хурдан & хялбар</h3>
+      <p>Ажлын байр хайх, өргөдөл гаргах бүх процесс цаасгүй, хурдан шийдэгдэнэ.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🎯</div>
+      <h3>Нарийн таарч тохирох</h3>
+      <p>Манай ухаалаг алгоритм таны ур чадвар, туршлагад яг тохирох байрыг санал болгоно.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔒</div>
+      <h3>Итгэлтэй, найдвартай</h3>
+      <p>Бүртгэлтэй, баталгаажсан компаниуд. Хуурамч зар байхгүй.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>CV шинжилгээ</h3>
+      <p>Таны CV-г шинжилж, дутуу зүйлийг нь зөвлөж, компанид илгээхэд бэлтгэнэ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <h2>Өнөөдөр эхэл,<br><em>ирээдүйгээ бүтээ</em></h2>
+  <p>Асуулт байвал бидэнтэй холбоо бар</p>
+
+  <a href="tel:72117170" class="cta-phone">7211-7170</a>
+  <div class="cta-phone-label">Даваа–Баасан: 09:00–18:00</div>
+
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="#jobs" class="btn-primary">Ажлын байр харах →</a>
+    <a href="tel:72117170" class="btn-outline">📞 Залгах</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" id="footerLogo" onclick="handleFooterClick()">
+    <span>Smart</span><span>Ажил</span>
+  </div>
+  <div class="footer-text">© 2025 Smart Ажил. Бүх эрх хуулиар хамгаалагдсан.</div>
+  <div class="footer-text">📞 7211-7170</div>
+</footer>
+
+<!-- ===== LOGIN MODAL ===== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
+    <h2>🔐 Админ нэвтрэх</h2>
+    <p class="sub">Зөвхөн эрх бүхий хэрэглэгч</p>
+    <div class="form-error" id="loginError">Нууц үг буруу байна!</div>
+    <div class="form-group">
+      <label>Нууц үг</label>
+      <input type="password" id="loginPassword" placeholder="Нууц үгээ оруулна уу" onkeydown="if(event.key==='Enter') doLogin()">
+    </div>
+    <button class="modal-btn" onclick="doLogin()">Нэвтрэх</button>
+  </div>
+</div>
+
+<!-- ===== ADD JOB MODAL ===== -->
+<div class="modal-overlay" id="addJobModal">
+  <div class="modal wide">
+    <button class="modal-close" onclick="closeModal('addJobModal')">✕</button>
+    <h2>➕ Ажил нэмэх</h2>
+    <p class="sub">Шинэ ажлын байрны мэдээлэл оруулна уу</p>
+
+    <div class="form-error" id="jobError">Бүх талбарыг бөглөнө үү!</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Байгууллагын нэр</label>
+        <input type="text" id="jCompany" placeholder="ХХК нэр">
+      </div>
+      <div class="form-group">
+        <label>Хот / Байршил</label>
+        <input type="text" id="jLocation" placeholder="Улаанбаатар">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Ажлын байрны нэр</label>
+      <input type="text" id="jTitle" placeholder="Жишээ: Програмист, Нягтлан...">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Цалин</label>
+        <input type="text" id="jSalary" placeholder="₮1.5–2.0 сая">
+      </div>
+      <div class="form-group">
+        <label>Ажлын төрөл</label>
+        <select id="jType">
+          <option value="Бүтэн цагийн">Бүтэн цагийн</option>
+          <option value="Хагас цагийн">Хагас цагийн</option>
+          <option value="Зайнаас">Зайнаас</option>
+          <option value="Гэрээт">Гэрээт</option>
+          <option value="Дадлага">Дадлага</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Тагнууд (таслалаар тусгаарла)</label>
+      <input type="text" id="jTags" placeholder="Жишээ: Excel, Санхүү, Python">
+    </div>
+
+    <div class="form-group">
+      <label>Лого өнгө</label>
+      <div class="color-options" id="colorOptions">
+        <div class="color-opt selected" style="background:#1D9E75" data-color="#1D9E75" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#BA7517" data-color="#BA7517" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#533489" data-color="#533489" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#1a73e8" data-color="#1a73e8" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#dc2626" data-color="#dc2626" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#0F6E56" data-color="#0F6E56" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#9333ea" data-color="#9333ea" onclick="selectColor(this)"></div>
+        <div class="color-opt" style="background:#ea580c" data-color="#ea580c" onclick="selectColor(this)"></div>
+      </div>
+    </div>
+
+    <button class="modal-btn" onclick="saveJob()">Хадгалах</button>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO ADD MODAL ===== -->
+<div class="modal-overlay" id="addPortfolioModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('addPortfolioModal')">✕</button>
+    <h2 style="margin:0 0 4px">🖼️ Ажил нэмэх</h2>
+    <p style="color:#888;font-size:14px;margin:0 0 20px">Portfolio-доо шинэ ажил нэмнэ</p>
+    <div class="form-error" id="pfError">Гарчиг болон ангилал сонгоно уу!</div>
+    <div class="form-group">
+      <label>Гарчиг</label>
+      <input type="text" id="pfTitle" placeholder="Жишээ: Nomiin delguuriin logo">
+    </div>
+    <div class="form-group">
+      <label>Ангилал</label>
+      <select id="pfCat" style="width:100%;padding:12px 14px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:15px;font-family:inherit;">
+        <option value="">-- Сонгох --</option>
+        <option value="logo">Лого</option>
+        <option value="poster">Постер</option>
+        <option value="invite">Цахим урилга</option>
+        <option value="website">Вэбсайт</option>
+        <option value="qr">QR Код</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Зургийн URL (Google Drive, Imgur гэх мэт)</label>
+      <input type="text" id="pfImg" placeholder="https://i.imgur.com/...">
+      <small style="color:#999;font-size:12px;margin-top:4px;display:block;">Зургаа Imgur.com-д upload хийгээд холбоосыг оруулна уу</small>
+    </div>
+    <button class="modal-btn" onclick="savePortfolio()">Нэмэх →</button>
+  </div>
+</div>
+
+<!-- ===== ORDER MODAL ===== -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal order">
+    <button class="modal-close" onclick="closeModal('orderModal')">✕</button>
+
+    <!-- STEP 1: Form -->
+    <div id="orderStep1">
+      <h2 id="orderTitle">📋 Захиалга</h2>
+      <p class="sub" id="orderSubtitle">Мэдээллээ оруулаад захиалга илгээнэ үү</p>
+
+      <div class="service-price-badge" id="orderPriceBadge">💰 Үнэ: —</div>
+
+      <div class="form-error" id="orderError">Бүх талбарыг бөглөнө үү!</div>
+
+      <div class="form-group">
+        <label>Таны нэр</label>
+        <input type="text" id="oName" placeholder="Бат-Эрдэнэ">
+      </div>
+      <div class="form-group">
+        <label>Утасны дугаар</label>
+        <input type="tel" id="oPhone" placeholder="9911-2233">
+      </div>
+      <div class="form-group">
+        <label>Нэмэлт тайлбар (заавал биш)</label>
+        <input type="text" id="oNote" placeholder="Жишээ: лого өнгө, хэмжээ...">
+      </div>
+
+      <button class="modal-btn" onclick="submitOrder()">Захиалга илгээх →</button>
+    </div>
+
+    <!-- STEP 2: Payment info -->
+    <div id="orderStep2" style="display:none">
+      <div class="order-success">
+        <span class="order-success-icon">🎉</span>
+        <h3>Захиалга хүлээн авлаа!</h3>
+        <p id="orderConfirmText">Төлбөрөө төлөөд баримтаа <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү.</p>
+      </div>
+
+      <!-- Payment method tabs -->
+      <div class="pay-tabs">
+        <button class="pay-tab active" onclick="showPayTab('bank')" id="tabBank">🏦 Банк шилжүүлэг</button>
+        <button class="pay-tab" onclick="showPayTab('qpay')" id="tabQpay">📱 QPay</button>
+      </div>
+
+      <!-- Bank tab -->
+      <div id="panelBank">
+        <div class="payment-box">
+          <div class="payment-box-label">Шилжүүлэх данс</div>
+          <div class="payment-box-account" id="payAccNum">5400133881</div>
+          <div class="payment-box-bank">Хаан банк · Б.Жайнагүль (IBAN: 31000500)
+            <button class="copy-btn" onclick="copyAcc()">Хуулах</button>
+          </div>
+          <div class="payment-box-amount-row">
+            <div class="payment-box-amount-label">Төлөх дүн</div>
+            <div class="payment-box-amount-value" id="bankAmt">—</div>
+          </div>
+        </div>
+        <ul class="payment-steps">
+          <li class="payment-step"><div class="payment-step-num">1</div> Хаан банк аппыг нээнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">2</div> Дансны дугаарт шилжүүлэг хийнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">3</div> Баримтыг <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">4</div> Бид 24 цагийн дотор холбогдоно</li>
+        </ul>
+      </div>
+
+      <!-- QPay tab -->
+      <div id="panelQpay" style="display:none">
+        <div class="payment-box" style="text-align:center">
+          <div class="payment-box-label" style="margin-bottom:12px">QPay дугаар</div>
+          <div class="payment-box-account" style="font-size:28px;letter-spacing:3px" id="qpayPhone">7211-7170</div>
+          <div class="payment-box-bank" style="margin-bottom:16px">Б.Жайнагүль · Smart Ажил</div>
+          <div class="payment-box-amount-row">
+            <div class="payment-box-amount-label">Төлөх дүн</div>
+            <div class="payment-box-amount-value" id="qpayAmt">—</div>
+          </div>
+        </div>
+        <ul class="payment-steps">
+          <li class="payment-step"><div class="payment-step-num">1</div> QPay аппыг нээнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">2</div> <strong>7211-7170</strong> дугаарт шилжүүлнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">3</div> Баримтыг <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү</li>
+          <li class="payment-step"><div class="payment-step-num">4</div> Бид 24 цагийн дотор холбогдоно</li>
+        </ul>
+      </div>
+
+      <button class="modal-btn" style="margin-top:20px; background:var(--green-mid)" onclick="closeModal('orderModal')">Хаах ✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== APPLY MODAL ===== -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal order">
+    <button class="modal-close" onclick="closeModal('applyModal')">✕</button>
+
+    <div id="applyStep1">
+      <h2>📨 Өргөдөл илгээх</h2>
+      <p class="sub" id="applySubtitle">Мэдээллээ оруулна уу</p>
+
+      <div class="form-error" id="applyError">Бүх талбарыг бөглөнө үү!</div>
+
+      <div class="form-group">
+        <label>Таны нэр</label>
+        <input type="text" id="aName" placeholder="Бат-Эрдэнэ">
+      </div>
+      <div class="form-group">
+        <label>Утасны дугаар</label>
+        <input type="tel" id="aPhone" placeholder="9911-2233">
+      </div>
+      <div class="form-group">
+        <label>Туршлага / CV холбоос (заавал биш)</label>
+        <input type="text" id="aCV" placeholder="2 жилийн туршлагатай...">
+      </div>
+
+      <button class="modal-btn" onclick="submitApply()">Өргөдөл илгээх →</button>
+    </div>
+
+    <div id="applyStep2" style="display:none">
+      <div class="order-success">
+        <span class="order-success-icon">✅</span>
+        <h3>Өргөдөл хүлээн авлаа!</h3>
+        <p id="applyConfirmText">Бид таны өргөдлийг хянаад <strong>7211-7170</strong> дугаараас 24 цагийн дотор холбогдох болно.</p>
+      </div>
+      <div class="payment-box" style="text-align:center; padding:20px;">
+        <div class="payment-box-label">Холбоо барих</div>
+        <div class="payment-box-account" style="font-size:24px">7211-7170</div>
+        <div class="payment-box-bank">Асуулт байвал залгаарай</div>
+      </div>
+      <button class="modal-btn" style="margin-top:16px; background:var(--green-mid)" onclick="closeModal('applyModal')">Хаах ✕</button>
+    </div>
+  </div>
+</div>
+
+<script>
+
+  // ===== CHATBOT =====
+  var chatOpen = false;
+  var chatHistory = [];
+  var chatTyping = false;
+
+  var SYSTEM_PROMPT = "Chi Smart Ajil businessiin tuslakh chatbot. Mongoloor tov tochniig hariulna. " +
+    "Smart Ajil bол Mongolyn ajlin bairni platform. " +
+    "Uilchilgee: QR Kod (25,000T), Logo (30,000-80,000T), Poster (35,000T), Tsakhim urilga (10,000-40,000T), Website (350,000-500,000T), Urgudel zagvar (10,000T). " +
+    "Dans: 5400133881, Khaan bank, B.Zhaynagul. " +
+    "Utasnii dugaar: 7211-7170. " +
+    "Ajliin bair deer urgudel gargaj bolno. " +
+    "Zahialga hийхийн tulд website deer Zahialah tovch darna. " +
+    "Khariult bogino, tudurhai bai. Emoji ashiglaj bolno.";
+
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    var box = document.getElementById('chatBox');
+    var btn = document.getElementById('chatToggle');
+    box.classList.toggle('open', chatOpen);
+    btn.textContent = chatOpen ? '✕' : '💬';
+    if(chatOpen && chatHistory.length === 0) {
+      setTimeout(function() {
+        addBotMsg('Сайн байна уу! 👋 Би Smart Ажилийн туслах бот. Юу асуухыг хүсч байна вэ?');
+      }, 300);
+    }
+  }
+
+  function addBotMsg(text) {
+    var msgs = document.getElementById('chatMessages');
+    var div = document.createElement('div');
+    div.className = 'chat-msg bot';
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function addUserMsg(text) {
+    var msgs = document.getElementById('chatMessages');
+    var div = document.createElement('div');
+    div.className = 'chat-msg user';
+    div.textContent = text;
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function showTyping() {
+    var msgs = document.getElementById('chatMessages');
+    var div = document.createElement('div');
+    div.className = 'chat-msg typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+    msgs.appendChild(div);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  function hideTyping() {
+    var el = document.getElementById('typingIndicator');
+    if(el) el.remove();
+  }
+
+  function sendQuick(text) {
+    document.getElementById('chatInput').value = text;
+    sendChat();
+    document.getElementById('chatQuickBtns').style.display = 'none';
+  }
+
+  async function sendChat() {
+    if(chatTyping) return;
+    var input = document.getElementById('chatInput');
+    var text = input.value.trim();
+    if(!text) return;
+    input.value = '';
+    addUserMsg(text);
+    chatHistory.push({role:'user', content: text});
+    chatTyping = true;
+    showTyping();
+    try {
+      var res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 300,
+          system: SYSTEM_PROMPT,
+          messages: chatHistory
+        })
+      });
+      var data = await res.json();
+      hideTyping();
+      var reply = data.content && data.content[0] ? data.content[0].text : 'Уучлаарай, алдаа гарлаа. 7211-7170 дугаарт залгана уу.';
+      addBotMsg(reply);
+      chatHistory.push({role:'assistant', content: reply});
+      if(chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+    } catch(err) {
+      hideTyping();
+      addBotMsg('Интернэт холболт шалгаад дахин оролдоно уу. Эсвэл 7211-7170 дугаарт залгана уу. 📞');
+    }
+    chatTyping = false;
+  }
+
+var ADMIN_PASSWORD = 'smart2025';
+var STORAGE_KEY = 'smartajil_jobs';
+var PORT_KEY = 'smartajil_portfolio';
+var SETT_KEY = 'smartajil_settings';
+
+var SERVICES = {
+  1:{name:'QR Kod',min:25000,max:25000},
+  2:{name:'Logo hiikh',min:30000,max:80000},
+  3:{name:'Poster hiikh',min:35000,max:35000},
+  4:{name:'Tsakhim urilga',min:10000,max:40000},
+  5:{name:'Website hiikh',min:350000,max:500000},
+  6:{name:'Urgudel zagvar',min:10000,max:10000}
+};
+
+var CAT_LABELS = {logo:'Лого',poster:'Постер',invite:'Цахим урилга',website:'Вэбсайт',qr:'QR Код'};
+var CAT_ICONS  = {logo:'✨',poster:'🎨',invite:'💌',website:'🌐',qr:'📱'};
+
+var DEFAULT_JOBS = [
+  {id:1,company:'MongolNet',location:'UB',title:'Programiin injener',type:'Buten tsagiin',tags:['JavaScript','React'],salary:'2.5-3.5 saya',color:'#1D9E75',initials:'MN'},
+  {id:2,company:'TD Media',location:'UB',title:'Marketing menejer',type:'Buten tsagiin',tags:['SMM','Content'],salary:'1.8-2.5 saya',color:'#BA7517',initials:'TD'},
+  {id:3,company:'Zuuvrin san',location:'UB',title:'Sanhuugiin shinjeech',type:'Hagas tsagiin',tags:['Excel','Sanhuu'],salary:'1.5-2.0 saya',color:'#533489',initials:'ZS'}
+];
+
+var isAdmin = false;
+var selectedColor = '#1D9E75';
+var footerClickCount = 0;
+var footerClickTimer = null;
+var curPrice = 0;
+var pfFilter = 'all';
+
+// ---- STORAGE ----
+function getJobs(){try{var s=localStorage.getItem(STORAGE_KEY);return s?JSON.parse(s):DEFAULT_JOBS;}catch(e){return DEFAULT_JOBS;}}
+function saveJobs(j){localStorage.setItem(STORAGE_KEY,JSON.stringify(j));}
+function getPortfolio(){try{var s=localStorage.getItem(PORT_KEY);return s?JSON.parse(s):[];}catch(e){return[];}}
+function savePortfolio2(p){localStorage.setItem(PORT_KEY,JSON.stringify(p));}
+function getSettings(){try{var s=localStorage.getItem(SETT_KEY);return s?JSON.parse(s):{phone:'7211-7170',bank:'5400133881',owner:'Б.Жайнагүль',bankName:'Хаан банк'};}catch(e){return{phone:'7211-7170',bank:'5400133881',owner:'Б.Жайнагүль',bankName:'Хаан банк'};}}
+
+function fmt(n){return String.fromCharCode(8366)+n.toLocaleString();}
+function getInitials(n){var w=n.trim().split(' ');return w.length>=2?(w[0][0]+w[1][0]).toUpperCase():n.substring(0,2).toUpperCase();}
+
+// ---- JOBS ----
+function renderJobs(filter){
+  var grid = document.getElementById('jobsGrid');
+  var jobs = getJobs();
+  if(filter) jobs = jobs.filter(function(j){
+    var q = filter.toLowerCase();
+    return j.title.toLowerCase().indexOf(q)>=0 || j.company.toLowerCase().indexOf(q)>=0 || j.tags.join(' ').toLowerCase().indexOf(q)>=0;
+  });
+  if(!jobs.length){
+    grid.innerHTML = '<div class="jobs-empty"><div class="empty-icon">&#x1F4ED;</div><p>Ажлын байр олдсонгүй</p></div>';
+    return;
+  }
+  grid.innerHTML = jobs.map(function(j){
+    var del = isAdmin ? '<button class="delete-job-btn visible" onclick="deleteJob('+j.id+')">&#x2715;</button>' : '';
+    return '<div class="job-card">'+del+
+      '<div class="job-company"><div class="company-logo" style="background:'+j.color+'">'+(j.initials||getInitials(j.company))+'</div>'+
+      '<div><div style="font-weight:500">'+j.company+'</div><div class="company-name">'+j.location+'</div></div></div>'+
+      '<div class="job-title">'+j.title+'</div>'+
+      '<div class="job-tags"><span class="tag green">'+j.type+'</span>'+j.tags.map(function(t){return'<span class="tag">'+t+'</span>';}).join('')+'</div>'+
+      '<div class="job-footer"><div class="salary">'+j.salary+'</div>'+
+      '<button class="apply-btn" onclick="openApply('+j.id+')">Urgudel</button></div></div>';
+  }).join('');
+}
+
+function filterJobs(q){renderJobs(q);}
+
+function doSearch(){
+  var q = document.getElementById('heroSearch').value.trim();
+  if(!q) return;
+  document.getElementById('jobs').scrollIntoView({behavior:'smooth'});
+  setTimeout(function(){
+    document.getElementById('jobSearch').value = q;
+    filterJobs(q);
+  }, 600);
+}
+
+// ---- PORTFOLIO ----
+function renderPortfolio(){
+  var grid = document.getElementById('portfolioGrid');
+  var empty = document.getElementById('portfolioEmpty');
+  var items = getPortfolio();
+  if(pfFilter !== 'all') items = items.filter(function(p){return p.cat === pfFilter;});
+  if(!items.length){grid.innerHTML='';empty.style.display='block';return;}
+  empty.style.display = 'none';
+  grid.innerHTML = items.map(function(p){
+    var del = isAdmin ? '<button class="pf-del" onclick="deletePortfolio('+p.id+')">&#x2715;</button>' : '';
+    var img = p.img
+      ? '<img class="pf-img" src="'+p.img+'" alt="'+p.title+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'">'
+        +'<div class="pf-img-placeholder" style="display:none">'+CAT_ICONS[p.cat]+'</div>'
+      : '<div class="pf-img-placeholder">'+CAT_ICONS[p.cat]+'</div>';
+    return '<div class="pf-card">'+img+'<div class="pf-info">'+del+
+      '<div class="pf-title">'+p.title+'</div>'+
+      '<span class="pf-cat">'+(CAT_LABELS[p.cat]||p.cat)+'</span>'+
+      '</div></div>';
+  }).join('');
+}
+
+function filterPortfolio(cat, btn){
+  pfFilter = cat;
+  document.querySelectorAll('.pf-tab').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  renderPortfolio();
+}
+
+function openAddPortfolio(){
+  document.getElementById('pfTitle').value = '';
+  document.getElementById('pfCat').value = '';
+  document.getElementById('pfImg').value = '';
+  document.getElementById('pfError').classList.remove('show');
+  openModal('addPortfolioModal');
+}
+
+function savePortfolio(){
+  var title = document.getElementById('pfTitle').value.trim();
+  var cat   = document.getElementById('pfCat').value;
+  var img   = document.getElementById('pfImg').value.trim();
+  if(!title || !cat){document.getElementById('pfError').classList.add('show');return;}
+  var items = getPortfolio();
+  items.unshift({id:Date.now(), title:title, cat:cat, img:img});
+  savePortfolio2(items);
+  closeModal('addPortfolioModal');
+  renderPortfolio();
+}
+
+function deletePortfolio(id){
+  if(!confirm('Устгах уу?'))return;
+  savePortfolio2(getPortfolio().filter(function(p){return p.id!==id;}));
+  renderPortfolio();
+}
+
+// ---- SETTINGS ----
+function toggleAdminSettings(){
+  var el = document.getElementById('adminSettings');
+  var hidden = el.style.display === 'none' || el.style.display === '';
+  if(hidden){
+    var s = getSettings();
+    document.getElementById('settPhone').value = s.phone;
+    document.getElementById('settBank').value = s.bank;
+    document.getElementById('settOwner').value = s.owner;
+    document.getElementById('settBankName').value = s.bankName;
+  }
+  el.style.display = hidden ? 'block' : 'none';
+}
+
+function saveSettings(){
+  var s = {
+    phone: document.getElementById('settPhone').value.trim() || '7211-7170',
+    bank: document.getElementById('settBank').value.trim() || '5400133881',
+    owner: document.getElementById('settOwner').value.trim() || 'Б.Жайнагүль',
+    bankName: document.getElementById('settBankName').value.trim() || 'Хаан банк'
+  };
+  localStorage.setItem(SETT_KEY, JSON.stringify(s));
+  var saved = document.getElementById('settSaved');
+  saved.style.display = 'inline';
+  setTimeout(function(){saved.style.display='none';},2000);
+}
+
+// ---- ADMIN ----
+function handleFooterClick(){footerClickCount++;clearTimeout(footerClickTimer);if(footerClickCount>=5){footerClickCount=0;if(!isAdmin)openAdminLogin();}footerClickTimer=setTimeout(function(){footerClickCount=0;},2000);}
+function openAdminLogin(){document.getElementById('loginPassword').value='';document.getElementById('loginError').classList.remove('show');openModal('loginModal');setTimeout(function(){document.getElementById('loginPassword').focus();},300);}
+function doLogin(){var pw=document.getElementById('loginPassword').value;if(pw===ADMIN_PASSWORD){isAdmin=true;closeModal('loginModal');activateAdmin();}else{document.getElementById('loginError').classList.add('show');document.getElementById('loginPassword').value='';document.getElementById('loginPassword').focus();}}
+function activateAdmin(){
+  ['adminBar','adminNavBtn','addJobBtn'].forEach(function(id){document.getElementById(id).classList.add('visible');});
+  document.getElementById('addPortfolioBtn').style.display='block';
+  renderJobs();
+  renderPortfolio();
+
+  // Load registrations for admin
+  window.loadRegs = function() {
+    var list = document.getElementById('regsList');
+    if(!list) return;
+    if(window.loadRegistrations) {
+      list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>';
+      window.loadRegistrations(function(regs) {
+        if(!regs.length) {
+          list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Одоохондоо бүртгэл байхгүй</p>';
+          return;
+        }
+        list.innerHTML = regs.map(function(r) {
+          var icon = r.type === 'zahialga' ? '🛒' : '📨';
+          var date = r.createdAt ? new Date(r.createdAt.seconds*1000).toLocaleString('mn-MN') : '';
+          return '<div style="background:#f8fafc;border-radius:10px;padding:12px 14px;border-left:3px solid #0F6E56;">' +
+            '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
+            '<strong style="font-size:14px;">' + icon + ' ' + (r.name||'') + '</strong>' +
+            '<span style="font-size:12px;color:#999;">' + date + '</span></div>' +
+            '<div style="font-size:13px;color:#555;">' +
+            '📞 ' + (r.phone||'') +
+            (r.service ? ' &nbsp;|&nbsp; 🛍️ ' + r.service + ' ' + (r.price||'') : '') +
+            (r.job ? ' &nbsp;|&nbsp; 💼 ' + r.job : '') +
+            (r.note ? '<br>📝 ' + r.note : '') +
+            '</div></div>';
+        }).join('');
+      });
+    }
+  };
+}
+function adminLogout(){
+  isAdmin=false;
+  ['adminBar','adminNavBtn','addJobBtn'].forEach(function(id){document.getElementById(id).classList.remove('visible');});
+  document.getElementById('addPortfolioBtn').style.display='none';
+  document.getElementById('adminSettings').classList.remove('visible');
+  renderJobs();
+  renderPortfolio();
+
+  // Load registrations for admin
+  window.loadRegs = function() {
+    var list = document.getElementById('regsList');
+    if(!list) return;
+    if(window.loadRegistrations) {
+      list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Ачааллаж байна...</p>';
+      window.loadRegistrations(function(regs) {
+        if(!regs.length) {
+          list.innerHTML = '<p style="color:#999;font-size:14px;text-align:center;">Одоохондоо бүртгэл байхгүй</p>';
+          return;
+        }
+        list.innerHTML = regs.map(function(r) {
+          var icon = r.type === 'zahialga' ? '🛒' : '📨';
+          var date = r.createdAt ? new Date(r.createdAt.seconds*1000).toLocaleString('mn-MN') : '';
+          return '<div style="background:#f8fafc;border-radius:10px;padding:12px 14px;border-left:3px solid #0F6E56;">' +
+            '<div style="display:flex;justify-content:space-between;margin-bottom:4px;">' +
+            '<strong style="font-size:14px;">' + icon + ' ' + (r.name||'') + '</strong>' +
+            '<span style="font-size:12px;color:#999;">' + date + '</span></div>' +
+            '<div style="font-size:13px;color:#555;">' +
+            '📞 ' + (r.phone||'') +
+            (r.service ? ' &nbsp;|&nbsp; 🛍️ ' + r.service + ' ' + (r.price||'') : '') +
+            (r.job ? ' &nbsp;|&nbsp; 💼 ' + r.job : '') +
+            (r.note ? '<br>📝 ' + r.note : '') +
+            '</div></div>';
+        }).join('');
+      });
+    }
+  };
+}
+
+// ---- ADD JOB ----
+function openAddJob(){['jCompany','jTitle','jSalary','jTags'].forEach(function(id){document.getElementById(id).value='';});document.getElementById('jLocation').value='Ulaanbaatar';document.getElementById('jType').value='Buten tsagiin';document.getElementById('jobError').classList.remove('show');selectedColor='#1D9E75';document.querySelectorAll('.color-opt').forEach(function(el){el.classList.toggle('selected',el.dataset.color===selectedColor);});openModal('addJobModal');}
+function selectColor(el){document.querySelectorAll('.color-opt').forEach(function(e){e.classList.remove('selected');});el.classList.add('selected');selectedColor=el.dataset.color;}
+function saveJob(){var company=document.getElementById('jCompany').value.trim(),location=document.getElementById('jLocation').value.trim(),title=document.getElementById('jTitle').value.trim(),salary=document.getElementById('jSalary').value.trim(),type=document.getElementById('jType').value,tagsRaw=document.getElementById('jTags').value.trim();if(!company||!title||!salary){document.getElementById('jobError').classList.add('show');return;}var tags=tagsRaw?tagsRaw.split(',').map(function(t){return t.trim();}).filter(Boolean):[];var jobs=getJobs();jobs.push({id:Date.now(),company:company,location:location,title:title,type:type,tags:tags,salary:salary,color:selectedColor,initials:getInitials(company)});saveJobs(jobs);closeModal('addJobModal');renderJobs();}
+function deleteJob(id){if(!confirm('Delete?'))return;saveJobs(getJobs().filter(function(j){return j.id!==id;}));renderJobs();}
+
+// ---- MODAL ----
+function openModal(id){document.getElementById(id).classList.add('open');}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(function(o){o.addEventListener('click',function(e){if(e.target===this)closeModal(this.id);});});
+
+// ---- ORDER ----
+function openOrder(id){
+  var s = SERVICES[id];
+  var st = getSettings();
+  curPrice = s.max;
+  var pd = (s.min===s.max) ? fmt(s.min) : fmt(s.min)+' - '+fmt(s.max);
+  document.getElementById('orderTitle').textContent = s.name;
+  document.getElementById('orderPriceBadge').innerHTML = 'Une: <strong>'+pd+'</strong>';
+  document.getElementById('oName').value='';
+  document.getElementById('oPhone').value='';
+  document.getElementById('oNote').value='';
+  document.getElementById('orderError').classList.remove('show');
+  document.getElementById('orderStep1').style.display='block';
+  document.getElementById('orderStep2').style.display='none';
+  openModal('orderModal');
+}
+
+function submitOrder(){
+  var name=document.getElementById('oName').value.trim();
+  var phone=document.getElementById('oPhone').value.trim();
+  var note=document.getElementById('oNote').value.trim();
+  if(!name||!phone){document.getElementById('orderError').classList.add('show');return;}
+  // Save to Firestore
+  if(window.saveToFirestore){
+    window.saveToFirestore('registrations', {
+      type: 'zahialga',
+      name: name,
+      phone: phone,
+      note: note,
+      service: currentOrderService,
+      price: fmt(currentOrderPrice)
+    });
+  }
+  var st = getSettings();
+  var amt = fmt(curPrice);
+  document.getElementById('payAccNum').textContent = st.bank;
+  document.getElementById('payBankInfo').textContent = st.bankName+' · '+st.owner;
+  document.getElementById('payBankStep2').textContent = st.bank;
+  document.getElementById('bankAmt').textContent = amt;
+  document.getElementById('qpayAmt').textContent = amt;
+  document.getElementById('qpayPhone').textContent = st.phone;
+  document.getElementById('qpayPhone2').textContent = st.phone;
+  showPayTab('bank');
+  document.getElementById('orderStep1').style.display='none';
+  document.getElementById('orderStep2').style.display='block';
+}
+
+function showPayTab(tab){
+  var isBank = tab==='bank';
+  document.getElementById('tabBank').classList.toggle('active',isBank);
+  document.getElementById('tabQpay').classList.toggle('active',!isBank);
+  document.getElementById('panelBank').style.display=isBank?'block':'none';
+  document.getElementById('panelQpay').style.display=isBank?'none':'block';
+}
+
+function copyAcc(){
+  var st = getSettings();
+  navigator.clipboard.writeText(st.bank).then(function(){
+    var btn=document.querySelector('.copy-btn');
+    btn.textContent='Copied!';btn.classList.add('copied');
+    setTimeout(function(){btn.textContent='Huulakh';btn.classList.remove('copied');},2000);
+  });
+}
+
+// ---- APPLY ----
+function openApply(id){
+  var job=getJobs().find(function(j){return j.id===id;});
+  if(!job)return;
+  document.getElementById('applySubtitle').textContent=job.title+' - '+job.company;
+  document.getElementById('aName').value='';
+  document.getElementById('aPhone').value='';
+  document.getElementById('aCV').value='';
+  document.getElementById('applyError').classList.remove('show');
+  document.getElementById('applyStep1').style.display='block';
+  document.getElementById('applyStep2').style.display='none';
+  openModal('applyModal');
+}
+
+function submitApply(){
+  var name=document.getElementById('aName').value.trim();
+  var phone=document.getElementById('aPhone').value.trim();
+  var cv=document.getElementById('aCV').value.trim();
+  if(!name||!phone){document.getElementById('applyError').classList.add('show');return;}
+  // Save to Firestore
+  if(window.saveToFirestore){
+    window.saveToFirestore('registrations', {
+      type: 'urgudel',
+      name: name,
+      phone: phone,
+      cv: cv,
+      job: document.getElementById('applySubtitle').textContent
+    });
+  }
+  document.getElementById('applyStep1').style.display='none';
+  document.getElementById('applyStep2').style.display='block';
+}
+
+// ---- INIT ----
+renderJobs();
+renderPortfolio();
+</script>
+
+
+<!-- ===== CHATBOT ===== -->
+<div class="chat-widget">
+  <div class="chat-box" id="chatBox">
+    <div class="chat-header">
+      <div class="chat-avatar">🤖</div>
+      <div class="chat-header-info">
+        <div class="chat-header-name">Smart Ажил Туслах</div>
+        <div class="chat-header-status">● Онлайн</div>
+      </div>
+      <button class="chat-close-btn" onclick="toggleChat()">✕</button>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-quick-btns" id="chatQuickBtns">
+      <button class="chat-quick-btn" onclick="sendQuick('Ямар үйлчилгээ байна вэ?')">Үйлчилгээ</button>
+      <button class="chat-quick-btn" onclick="sendQuick('Үнэ хэд вэ?')">Үнэ</button>
+      <button class="chat-quick-btn" onclick="sendQuick('Яаж захиалах вэ?')">Захиалга</button>
+      <button class="chat-quick-btn" onclick="sendQuick('Ажлын байр байна уу?')">Ажлын байр</button>
+    </div>
+    <div class="chat-input-row">
+      <input class="chat-input" id="chatInput" placeholder="Асуух зүйлээ бичнэ үү..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">➤</button>
+    </div>
+  </div>
+  <button class="chat-toggle" onclick="toggleChat()" id="chatToggle" title="Чат нээх">💬</button>
+</div>
+
+<!-- WhatsApp Float Button -->
+<div class="wa-float">
+  <div class="wa-tooltip">💬 WhatsApp-аар холбогдох</div>
+  <a class="wa-btn" href="https://wa.me/97672117170?text=Sain baina uu! Smart Ajil-tei holbogdoh gesen baina." target="_blank" rel="noopener">
+    <div class="wa-pulse"></div>
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 3C8.82 3 3 8.82 3 16c0 2.38.65 4.6 1.78 6.52L3 29l6.65-1.74A13 13 0 0016 29c7.18 0 13-5.82 13-13S23.18 3 16 3z" fill="white"/>
+      <path d="M21.5 18.9c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.48-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z" fill="#25D366"/>
+    </svg>
+  </a>
+</div>
+</body>
+</html>
