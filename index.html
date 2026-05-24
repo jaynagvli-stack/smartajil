@@ -1352,7 +1352,7 @@
   .btn-primary:active, .btn-outline:active { transform: scale(0.97); }
   .modal-btn:active { transform: scale(0.97); }
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/mn_MN/sdk.js#xfbml=1&version=v19.0" nonce="smartajil"></script>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
@@ -1393,6 +1393,7 @@
     <li><a href="#services">Үйлчилгээ</a></li>
     <li><a href="#how">Хэрхэн ажилладаг</a></li>
     <li><a href="#why">Яагаад бид?</a></li>
+    <li><a href="#facebook" style="color:#1877F2!important;font-weight:500">📘 Facebook</a></li>
     <li><a href="#contact" class="nav-cta">Холбоо барих</a></li>
     <li><button class="admin-nav-btn" id="adminNavBtn" onclick="openAdminLogin()">⚙️ Админ</button></li>
   </ul>
@@ -1418,11 +1419,15 @@
   <button class="logout-btn" onclick="adminLogout()">Гарах</button>
 </div>
 <div id="adminSettings" style="display:none;background:white;padding:20px 24px;border-bottom:1px solid #e2e8f0;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:900px;margin:0 auto;">
-    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Утасны дугаар</label><input id="settPhone" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="7211-7170"></div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;max-width:1100px;margin:0 auto;">
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Утасны дугаар / QPay</label><input id="settPhone" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="7211-7170"></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">QPay QR зургийн URL</label><input id="settQpayQr" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="https://i.imgur.com/..."></div>
     <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Банкны данс</label><input id="settBank" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="5400133881"></div>
     <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Дансны эзэн</label><input id="settOwner" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="Б.Жайнагүль"></div>
     <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Банкны нэр</label><input id="settBankName" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="Хаан банк"></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">Facebook Хуудасны URL</label><input id="settFbUrl" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="https://www.facebook.com/taniipage"><small style="font-size:11px;color:#aaa;display:block;margin-top:2px">Facebook хуудсандаа орж URL-г хуулна уу</small></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">JSONBin API Key <small style="color:#aaa">(ажлын зар хэн ч нэмэх)</small></label><input id="settBinKey" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="$2b$10$..."></div>
+    <div><label style="font-size:12px;font-weight:600;display:block;margin-bottom:4px;color:#555;">JSONBin Bin ID</label><input id="settBinId" style="width:100%;padding:8px 10px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:14px;box-sizing:border-box;" placeholder="64a1b2c3d4e5f..."><small style="font-size:11px;color:#aaa;display:block;margin-top:2px">jsonbin.io → бүртгүүл → шинэ bin → ID хуулах</small></div>
   </div>
   <div style="text-align:center;margin-top:12px;">
     <button onclick="saveSettings()" style="padding:9px 24px;background:#0F6E56;color:white;border:none;border-radius:8px;cursor:pointer;font-size:14px;font-weight:500;font-family:inherit;">Хадгалах</button>
@@ -1530,15 +1535,13 @@
     </div>
     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
       <input type="text" id="jobSearch" placeholder="Хайх..." oninput="filterJobs(this.value)"
-        style="padding:10px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;width:200px;font-family:inherit;">
-      <button class="add-job-btn" id="addJobBtn" onclick="openAddJob()">+ Ажил нэмэх</button>
-      <button id="importJobBtn" onclick="openImport()" style="display:none;padding:10px 20px;background:white;border:1.5px solid var(--green);color:var(--green);border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;align-items:center;gap:6px;">📥 Excel оруулах</button>
+        style="padding:10px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;width:180px;font-family:inherit;">
+      <button onclick="openPublicPost()" style="padding:10px 20px;background:linear-gradient(135deg,var(--green),var(--green-mid));color:white;border:none;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:6px;">📢 Ажлын зар нэмэх</button>
+      <button class="add-job-btn" id="addJobBtn" onclick="openAddJob()">⚙️ Админ нэмэх</button>
+      <button id="importJobBtn" onclick="openImport()" style="display:none;padding:10px 20px;background:white;border:1.5px solid var(--green);color:var(--green);border-radius:10px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;align-items:center;gap:6px;">📥 Excel</button>
     </div>
   </div>
-
-  <div class="jobs-grid" id="jobsGrid">
-    <!-- Jobs rendered by JS -->
-  </div>
+  <div class="jobs-grid" id="jobsGrid"></div>
 </section>
 
 <!-- PORTFOLIO -->
@@ -1673,6 +1676,60 @@
       <div class="feature-icon">📊</div>
       <h3>CV шинжилгээ</h3>
       <p>Таны CV-г шинжилж, дутуу зүйлийг нь зөвлөж, компанид илгээхэд бэлтгэнэ.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FACEBOOK PAGE -->
+<section id="facebook" style="background:white;padding:80px 60px;text-align:center;">
+  <div class="section-label">Нийгмийн сүлжээ</div>
+  <div class="section-title" style="margin-bottom:12px">Манай Facebook<br>хуудас</div>
+  <p style="color:var(--muted);font-size:16px;margin-bottom:40px;">Шинэ ажлын зар, мэдээ мэдээлэл — Facebook-ээр дагаарай</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:40px;justify-content:center;align-items:flex-start;">
+
+    <!-- Facebook embed -->
+    <div id="fbEmbedWrap" style="border-radius:16px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.1);flex-shrink:0;">
+      <div id="fb-root"></div>
+      <div class="fb-page"
+        data-href="https://www.facebook.com/share/1DkPN9FDcH/"
+        data-tabs="timeline"
+        data-width="380"
+        data-height="500"
+        data-small-header="false"
+        data-adapt-container-width="true"
+        data-hide-cover="false"
+        data-show-facepile="true">
+        <!-- Fallback while loading -->
+        <blockquote cite="https://www.facebook.com/share/1DkPN9FDcH/" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/share/1DkPN9FDcH/">Smart Ажил</a>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Right side info -->
+    <div style="max-width:360px;text-align:left;">
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="background:var(--cream);border-radius:16px;padding:28px;">
+          <div style="font-size:32px;margin-bottom:12px">👍</div>
+          <h3 style="font-size:18px;font-weight:600;margin-bottom:8px;color:var(--dark)">Facebook-д дагах</h3>
+          <p style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:16px">Шинэ ажлын зар гарахад шууд мэдэгдэл авна. Манай хуудсыг Like дараарай!</p>
+          <a id="fbPageLink" href="https://www.facebook.com/share/1DkPN9FDcH/" target="_blank"
+            style="display:inline-flex;align-items:center;gap:8px;background:#1877F2;color:white;padding:12px 24px;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Facebook хуудас нээх
+          </a>
+        </div>
+
+        <div style="background:linear-gradient(135deg,#1877F2,#42A5F5);border-radius:16px;padding:28px;color:white;">
+          <div style="font-size:28px;margin-bottom:10px">📢</div>
+          <h3 style="font-size:17px;font-weight:600;margin-bottom:8px;">Facebook-т зар оруулмаар бол</h3>
+          <p style="font-size:13px;opacity:0.85;line-height:1.6;margin-bottom:14px">Манай хуудсанд зар оруулах захиалга хийнэ үү</p>
+          <a href="tel:72117170" style="display:inline-flex;align-items:center;gap:6px;background:white;color:#1877F2;padding:10px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;">📞 Холбоо барих</a>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -1812,6 +1869,68 @@
       <a href="https://wa.me/97672117170" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:600;font-size:15px">
         💬 WhatsApp-аар холбогдох
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PUBLIC JOB POST MODAL ===== -->
+<div class="modal-overlay" id="publicPostModal">
+  <div class="modal wide">
+    <button class="modal-close" onclick="closeModal('publicPostModal')">✕</button>
+    <h2>📢 Ажлын зар оруулах</h2>
+    <p class="sub">Байгууллага эсвэл хувь хүний ажлын зар — шууд байршина</p>
+    <div class="form-error" id="ppError">Байгууллага болон ажлын нэрийг оруулна уу!</div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Байгууллага / Нэр *</label>
+        <input type="text" id="ppCompany" placeholder="Компаний нэр эсвэл хувь хүн">
+      </div>
+      <div class="form-group">
+        <label>Ажлын байрны нэр *</label>
+        <input type="text" id="ppTitle" placeholder="Жишээ: Жолооч, Нягтлан...">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Байршил</label>
+        <input type="text" id="ppLocation" placeholder="Улаанбаатар">
+      </div>
+      <div class="form-group">
+        <label>Цалин</label>
+        <input type="text" id="ppSalary" placeholder="₮800,000 – 1,200,000">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Ажлын төрөл</label>
+        <select id="ppType" style="width:100%;padding:11px 14px;border:1.5px solid rgba(15,110,86,0.2);border-radius:10px;font-size:15px;font-family:inherit;outline:none;">
+          <option>Бүтэн цагийн</option>
+          <option>Хагас цагийн</option>
+          <option>Зайнаас</option>
+          <option>Гэрээт</option>
+          <option>Дадлага</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Холбоо барих утас *</label>
+        <input type="tel" id="ppPhone" placeholder="9911 2233">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Шаардлага / Нэмэлт мэдээлэл</label>
+      <textarea id="ppNote" rows="2" style="width:100%;border:1.5px solid rgba(15,110,86,0.2);border-radius:10px;padding:11px 14px;font-size:14px;font-family:inherit;resize:vertical;outline:none;" placeholder="Туршлага, боловсрол, ажлын цаг гэх мэт..."></textarea>
+    </div>
+
+    <div id="ppStep1">
+      <button class="modal-btn" onclick="submitPublicPost()">📢 Зар байршуулах →</button>
+      <p style="text-align:center;font-size:12px;color:#aaa;margin-top:8px">Таны зар шууд вэб хуудсанд харагдана</p>
+    </div>
+    <div id="ppStep2" style="display:none;text-align:center;padding:16px 0">
+      <div style="font-size:52px;margin-bottom:12px">🎉</div>
+      <div style="font-size:18px;font-weight:700;color:var(--dark);margin-bottom:8px">Амжилттай байршлаа!</div>
+      <div style="font-size:14px;color:var(--muted)">Таны ажлын зар одоо бүх хэрэглэгчид харагдаж байна.</div>
+      <button onclick="closeModal('publicPostModal')" style="margin-top:16px;background:var(--green);color:white;border:none;border-radius:10px;padding:12px 32px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;">Хаах</button>
     </div>
   </div>
 </div>
@@ -1972,86 +2091,67 @@
   <div class="modal order">
     <button class="modal-close" onclick="closeModal('orderModal')">✕</button>
 
-    <!-- STEP 1: Form -->
-    <div id="orderStep1">
-      <h2 id="orderTitle">📋 Захиалга</h2>
-      <p class="sub" id="orderSubtitle">Мэдээллээ оруулаад захиалга илгээнэ үү</p>
+    <h2 id="orderTitle" style="margin-bottom:4px">📋 Захиалга</h2>
+    <div class="service-price-badge" id="orderPriceBadge" style="margin-bottom:20px">💰 Үнэ: —</div>
 
-      <div class="service-price-badge" id="orderPriceBadge">💰 Үнэ: —</div>
-
-      <div class="form-error" id="orderError">Бүх талбарыг бөглөнө үү!</div>
-
-      <div class="form-group">
-        <label>Таны нэр</label>
-        <input type="text" id="oName" placeholder="Бат-Эрдэнэ">
-      </div>
-      <div class="form-group">
-        <label>Утасны дугаар</label>
-        <input type="tel" id="oPhone" placeholder="9911-2233">
-      </div>
-      <div class="form-group">
-        <label>Нэмэлт тайлбар (заавал биш)</label>
-        <input type="text" id="oNote" placeholder="Жишээ: лого өнгө, хэмжээ...">
-      </div>
-
-      <button class="modal-btn" onclick="submitOrder()">Захиалга илгээх →</button>
+    <!-- Payment method tabs — QPay FIRST -->
+    <div class="pay-tabs">
+      <button class="pay-tab active" onclick="showPayTab('qpay')" id="tabQpay">📱 QPay</button>
+      <button class="pay-tab" onclick="showPayTab('bank')" id="tabBank">🏦 Банк шилжүүлэг</button>
     </div>
 
-    <!-- STEP 2: Payment info -->
-    <div id="orderStep2" style="display:none">
-      <div class="order-success">
-        <span class="order-success-icon">🎉</span>
-        <h3>Захиалга хүлээн авлаа!</h3>
-        <p id="orderConfirmText">Төлбөрөө төлөөд баримтаа <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү.</p>
-      </div>
-
-      <!-- Payment method tabs -->
-      <div class="pay-tabs">
-        <button class="pay-tab active" onclick="showPayTab('bank')" id="tabBank">🏦 Банк шилжүүлэг</button>
-        <button class="pay-tab" onclick="showPayTab('qpay')" id="tabQpay">📱 QPay</button>
-      </div>
-
-      <!-- Bank tab -->
-      <div id="panelBank">
-        <div class="payment-box">
-          <div class="payment-box-label">Шилжүүлэх данс</div>
-          <div class="payment-box-account" id="payAccNum">5400133881</div>
-          <div class="payment-box-bank">Хаан банк · Б.Жайнагүль (IBAN: 31000500)
-            <button class="copy-btn" onclick="copyAcc()">Хуулах</button>
-          </div>
-          <div class="payment-box-amount-row">
-            <div class="payment-box-amount-label">Төлөх дүн</div>
-            <div class="payment-box-amount-value" id="bankAmt">—</div>
-          </div>
+    <!-- QPay panel (default) -->
+    <div id="panelQpay">
+      <div class="payment-box" style="text-align:center;padding:28px 20px">
+        <!-- QR code image (if set) -->
+        <div id="qpayQrWrap" style="display:none;margin-bottom:16px">
+          <img id="qpayQrImg" src="" alt="QPay QR" style="width:180px;height:180px;border-radius:12px;object-fit:contain;border:3px solid rgba(15,110,86,0.15)">
+          <div style="font-size:12px;color:var(--muted);margin-top:6px">📱 Камераар скан хийнэ үү</div>
         </div>
-        <ul class="payment-steps">
-          <li class="payment-step"><div class="payment-step-num">1</div> Хаан банк аппыг нээнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">2</div> Дансны дугаарт шилжүүлэг хийнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">3</div> Баримтыг <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">4</div> Бид 24 цагийн дотор холбогдоно</li>
-        </ul>
-      </div>
-
-      <!-- QPay tab -->
-      <div id="panelQpay" style="display:none">
-        <div class="payment-box" style="text-align:center">
-          <div class="payment-box-label" style="margin-bottom:12px">QPay дугаар</div>
-          <div class="payment-box-account" style="font-size:28px;letter-spacing:3px" id="qpayPhone">7211-7170</div>
-          <div class="payment-box-bank" style="margin-bottom:16px">Б.Жайнагүль · Smart Ажил</div>
-          <div class="payment-box-amount-row">
-            <div class="payment-box-amount-label">Төлөх дүн</div>
-            <div class="payment-box-amount-value" id="qpayAmt">—</div>
-          </div>
+        <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px">QPay дугаар</div>
+        <div id="qpayPhone" onclick="copyQpay()" style="font-size:40px;font-weight:800;letter-spacing:4px;color:var(--dark);margin-bottom:4px;cursor:pointer;transition:color 0.2s" title="Дарж хуулах">7211-7170</div>
+        <button onclick="copyQpay()" id="qpayCopyBtn" style="background:rgba(15,110,86,0.1);border:none;color:var(--green);border-radius:8px;padding:6px 16px;font-size:13px;cursor:pointer;font-family:inherit;margin-bottom:12px">📋 Дугаар хуулах</button>
+        <div id="qpayOwner" style="font-size:14px;color:var(--muted);margin-bottom:16px">Б.Жайнагүль · Smart Ажил</div>
+        <div style="background:rgba(15,110,86,0.08);border-radius:12px;padding:14px">
+          <div style="font-size:13px;color:var(--muted);margin-bottom:4px">Төлөх дүн</div>
+          <div id="qpayAmt" style="font-size:28px;font-weight:700;color:var(--green)">—</div>
         </div>
-        <ul class="payment-steps">
-          <li class="payment-step"><div class="payment-step-num">1</div> QPay аппыг нээнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">2</div> <strong>7211-7170</strong> дугаарт шилжүүлнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">3</div> Баримтыг <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү</li>
-          <li class="payment-step"><div class="payment-step-num">4</div> Бид 24 цагийн дотор холбогдоно</li>
-        </ul>
       </div>
+      <ul class="payment-steps">
+        <li class="payment-step"><div class="payment-step-num">1</div>QPay аппыг нээнэ үү</li>
+        <li class="payment-step"><div class="payment-step-num">2</div><strong id="qpayPhone2">7211-7170</strong> дугаарт төлнө үү</li>
+        <li class="payment-step"><div class="payment-step-num">3</div>Баримтын зургийг <strong id="qpayReceiptNum">7211-7170</strong>-д утсаар илгээнэ үү</li>
+        <li class="payment-step"><div class="payment-step-num">4</div>Бид 24 цагийн дотор холбогдоно</li>
+      </ul>
+    </div>
 
-      <button class="modal-btn" style="margin-top:20px; background:var(--green-mid)" onclick="closeModal('orderModal')">Хаах ✕</button>
+    <!-- Bank panel -->
+    <div id="panelBank" style="display:none">
+      <div class="payment-box">
+        <div class="payment-box-label">Шилжүүлэх данс</div>
+        <div class="payment-box-account" id="payAccNum">5400133881</div>
+        <div class="payment-box-bank" id="payBankInfo">Хаан банк · Б.Жайнагүль
+          <button class="copy-btn" onclick="copyAcc()">Хуулах</button>
+        </div>
+        <div class="payment-box-amount-row">
+          <div class="payment-box-amount-label">Төлөх дүн</div>
+          <div class="payment-box-amount-value" id="bankAmt">—</div>
+        </div>
+      </div>
+      <ul class="payment-steps">
+        <li class="payment-step"><div class="payment-step-num">1</div>Хаан банк аппыг нээнэ үү</li>
+        <li class="payment-step"><div class="payment-step-num">2</div>Дансны дугаарт <strong id="payBankStep2">5400133881</strong> шилжүүлэг хийнэ үү</li>
+        <li class="payment-step"><div class="payment-step-num">3</div>Баримтыг <strong>7211-7170</strong>-д WhatsApp-аар илгээнэ үү</li>
+        <li class="payment-step"><div class="payment-step-num">4</div>Бид 24 цагийн дотор холбогдоно</li>
+      </ul>
+    </div>
+
+    <!-- Optional contact -->
+    <div style="margin-top:16px;background:var(--cream);border-radius:12px;padding:16px">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:10px">Баримтаа доорх дугаарт утсаар илгээнэ үү</div>
+      <a id="orderCallBtn" href="tel:72117170" style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:white;border-radius:10px;padding:13px;text-decoration:none;font-weight:700;font-size:18px">
+        📞 <span id="orderCallNum">7211-7170</span>
+      </a>
     </div>
   </div>
 </div>
@@ -2515,22 +2615,43 @@ function toggleAdminSettings(){
   var hidden = el.style.display === 'none' || el.style.display === '';
   if(hidden){
     var s = getSettings();
-    document.getElementById('settPhone').value = s.phone;
-    document.getElementById('settBank').value = s.bank;
-    document.getElementById('settOwner').value = s.owner;
-    document.getElementById('settBankName').value = s.bankName;
+    document.getElementById('settPhone').value = s.phone||'';
+    document.getElementById('settQpayQr').value = s.qpayQr||'';
+    document.getElementById('settBank').value = s.bank||'';
+    document.getElementById('settOwner').value = s.owner||'';
+    document.getElementById('settBankName').value = s.bankName||'';
+    document.getElementById('settFbUrl').value = s.fbUrl||'';
+    document.getElementById('settBinKey').value = s.binKey||'';
+    document.getElementById('settBinId').value = s.binId||'';
   }
   el.style.display = hidden ? 'block' : 'none';
+}
+
+function applyFbUrl(url){
+  if(!url) return;
+  // Update fb-page div data-href
+  var fbDiv = document.querySelector('.fb-page');
+  if(fbDiv){ fbDiv.setAttribute('data-href', url); }
+  // Update link
+  var fbLink = document.getElementById('fbPageLink');
+  if(fbLink){ fbLink.href = url; }
+  // Re-parse Facebook widgets
+  if(window.FB && window.FB.XFBML){ window.FB.XFBML.parse(); }
 }
 
 function saveSettings(){
   var s = {
     phone: document.getElementById('settPhone').value.trim() || '7211-7170',
+    qpayQr: document.getElementById('settQpayQr').value.trim() || '',
     bank: document.getElementById('settBank').value.trim() || '5400133881',
     owner: document.getElementById('settOwner').value.trim() || 'Б.Жайнагүль',
-    bankName: document.getElementById('settBankName').value.trim() || 'Хаан банк'
+    bankName: document.getElementById('settBankName').value.trim() || 'Хаан банк',
+    fbUrl: document.getElementById('settFbUrl').value.trim() || '',
+    binKey: document.getElementById('settBinKey').value.trim() || '',
+    binId: document.getElementById('settBinId').value.trim() || ''
   };
   localStorage.setItem(SETT_KEY, JSON.stringify(s));
+  applyFbUrl(s.fbUrl);
   var saved = document.getElementById('settSaved');
   saved.style.display = 'inline';
   setTimeout(function(){saved.style.display='none';},2000);
@@ -2571,47 +2692,154 @@ document.querySelectorAll('.modal-overlay').forEach(function(o){o.addEventListen
 // ---- ORDER ----
 function openOrder(id){
   var s = SERVICES[id];
+  if(!s) return;
   var st = getSettings();
   curPrice = s.max;
-  var pd = (s.min===s.max) ? fmt(s.min) : fmt(s.min)+' - '+fmt(s.max);
-  document.getElementById('orderTitle').textContent = s.name;
-  document.getElementById('orderPriceBadge').innerHTML = 'Une: <strong>'+pd+'</strong>';
-  document.getElementById('oName').value='';
-  document.getElementById('oPhone').value='';
-  document.getElementById('oNote').value='';
-  document.getElementById('orderError').classList.remove('show');
-  document.getElementById('orderStep1').style.display='block';
-  document.getElementById('orderStep2').style.display='none';
+  var pd = (s.min===s.max) ? fmt(s.min) : fmt(s.min)+' – '+fmt(s.max);
+  document.getElementById('orderTitle').textContent = s.name+' — Захиалга';
+  document.getElementById('orderPriceBadge').innerHTML = '💰 Үнэ: <strong>'+pd+'</strong>';
+  var ph = st.phone||'7211-7170';
+  // QPay
+  document.getElementById('qpayPhone').textContent = ph;
+  document.getElementById('qpayPhone2').textContent = ph;
+  document.getElementById('qpayReceiptNum').textContent = ph;
+  document.getElementById('qpayOwner').textContent = (st.owner||'Б.Жайнагүль')+' · Smart Ажил';
+  document.getElementById('qpayAmt').textContent = pd;
+  // QPay QR code
+  var qrWrap = document.getElementById('qpayQrWrap');
+  if(st.qpayQr){
+    document.getElementById('qpayQrImg').src = st.qpayQr;
+    qrWrap.style.display = 'block';
+  } else { qrWrap.style.display = 'none'; }
+  // Bank
+  document.getElementById('payAccNum').textContent = st.bank||'5400133881';
+  document.getElementById('payBankInfo').innerHTML = (st.bankName||'Хаан банк')+' · '+(st.owner||'Б.Жайнагүль')+
+    ' <button class="copy-btn" onclick="copyAcc()">Хуулах</button>';
+  document.getElementById('payBankStep2').textContent = st.bank||'5400133881';
+  document.getElementById('bankAmt').textContent = pd;
+  // Call btn
+  document.getElementById('orderCallNum').textContent = ph;
+  document.getElementById('orderCallBtn').href = 'tel:'+ph.replace(/[-\s]/g,'');
+  showPayTab('qpay');
   openModal('orderModal');
 }
 
-function submitOrder(){
-  var name=document.getElementById('oName').value.trim();
-  var phone=document.getElementById('oPhone').value.trim();
-  if(!name||!phone){document.getElementById('orderError').classList.add('show');return;}
-  if(window.saveToFirestore){
-    window.saveToFirestore('registrations',{type:'zahialga',name:name,phone:phone,service:SERVICES[currentOrderId]?SERVICES[currentOrderId].name:'',price:fmt(curPrice)});
-  }
+function copyQpay(){
   var st = getSettings();
-  var amt = fmt(curPrice);
-  document.getElementById('payAccNum').textContent = st.bank;
-  document.getElementById('payBankInfo').textContent = st.bankName+' · '+st.owner;
-  document.getElementById('payBankStep2').textContent = st.bank;
-  document.getElementById('bankAmt').textContent = amt;
-  document.getElementById('qpayAmt').textContent = amt;
-  document.getElementById('qpayPhone').textContent = st.phone;
-  document.getElementById('qpayPhone2').textContent = st.phone;
-  showPayTab('bank');
-  document.getElementById('orderStep1').style.display='none';
-  document.getElementById('orderStep2').style.display='block';
+  var ph = (st.phone||'7211-7170').replace(/[-\s]/g,'');
+  navigator.clipboard.writeText(ph).then(function(){
+    var btn = document.getElementById('qpayCopyBtn');
+    btn.textContent = '✅ Хуулагдлаа!';
+    setTimeout(function(){btn.textContent='📋 Дугаар хуулах';},2000);
+  });
 }
 
 function showPayTab(tab){
-  var isBank = tab==='bank';
-  document.getElementById('tabBank').classList.toggle('active',isBank);
-  document.getElementById('tabQpay').classList.toggle('active',!isBank);
-  document.getElementById('panelBank').style.display=isBank?'block':'none';
-  document.getElementById('panelQpay').style.display=isBank?'none':'block';
+  var isQpay = tab==='qpay';
+  document.getElementById('tabQpay').classList.toggle('active', isQpay);
+  document.getElementById('tabBank').classList.toggle('active', !isQpay);
+  document.getElementById('panelQpay').style.display = isQpay?'block':'none';
+  document.getElementById('panelBank').style.display = isQpay?'none':'block';
+}
+
+// ---- PUBLIC JOB POST ----
+function openPublicPost(){
+  ['ppCompany','ppTitle','ppLocation','ppSalary','ppPhone','ppNote'].forEach(function(id){document.getElementById(id).value='';});
+  document.getElementById('ppLocation').value='Улаанбаатар';
+  document.getElementById('ppType').value='Бүтэн цагийн';
+  document.getElementById('ppError').classList.remove('show');
+  document.getElementById('ppStep1').style.display='block';
+  document.getElementById('ppStep2').style.display='none';
+  openModal('publicPostModal');
+}
+
+function submitPublicPost(){
+  var company = document.getElementById('ppCompany').value.trim();
+  var title   = document.getElementById('ppTitle').value.trim();
+  var phone   = document.getElementById('ppPhone').value.trim();
+  if(!company||!title){document.getElementById('ppError').classList.add('show');return;}
+  var colors = ['#1D9E75','#BA7517','#533489','#1a73e8','#dc2626','#0F6E56','#9333ea','#ea580c'];
+  var newJob = {
+    id: Date.now(),
+    company: company,
+    title: title,
+    location: document.getElementById('ppLocation').value.trim()||'Улаанбаатар',
+    salary: document.getElementById('ppSalary').value.trim()||'Тохиролцоно',
+    type: document.getElementById('ppType').value,
+    tags: phone ? ['📞 '+phone] : [],
+    note: document.getElementById('ppNote').value.trim(),
+    color: colors[Math.floor(Math.random()*colors.length)],
+    initials: getInitials(company),
+    source: 'public'
+  };
+
+  var st = getSettings();
+  // If JSONBin configured → save to cloud (visible to all)
+  if(st.binKey && st.binId){
+    saveToJsonBin(newJob, st);
+  } else {
+    // Save locally
+    var jobs = getJobs();
+    jobs.unshift(newJob);
+    saveJobs(jobs);
+    renderJobs();
+  }
+  document.getElementById('ppStep1').style.display='none';
+  document.getElementById('ppStep2').style.display='block';
+}
+
+function saveToJsonBin(newJob, st){
+  // Fetch existing, append new job, update bin
+  fetch('https://api.jsonbin.io/v3/b/'+st.binId+'/latest', {
+    headers: {'X-Master-Key': st.binKey, 'X-Bin-Meta': 'false'}
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    var jobs = Array.isArray(data) ? data : (data.jobs||[]);
+    jobs.unshift(newJob);
+    return fetch('https://api.jsonbin.io/v3/b/'+st.binId, {
+      method: 'PUT',
+      headers: {'Content-Type':'application/json','X-Master-Key':st.binKey},
+      body: JSON.stringify(jobs)
+    });
+  })
+  .then(function(){
+    // Also save locally for immediate display
+    var local = getJobs();
+    local.unshift(newJob);
+    saveJobs(local);
+    renderJobs();
+  })
+  .catch(function(){
+    // Fallback to local
+    var jobs = getJobs();
+    jobs.unshift(newJob);
+    saveJobs(jobs);
+    renderJobs();
+  });
+}
+
+function loadFromJsonBin(){
+  var st = getSettings();
+  if(!st.binKey||!st.binId) return;
+  fetch('https://api.jsonbin.io/v3/b/'+st.binId+'/latest',{
+    headers:{'X-Master-Key':st.binKey,'X-Bin-Meta':'false'}
+  })
+  .then(function(r){return r.json();})
+  .then(function(data){
+    var cloudJobs = Array.isArray(data)?data:(data.jobs||[]);
+    if(cloudJobs.length){
+      // Merge with local, cloud takes priority
+      var local = getJobs().filter(function(j){return j.source!=='public';});
+      var merged = cloudJobs.concat(local);
+      // Deduplicate by id
+      var seen={};
+      merged = merged.filter(function(j){if(seen[j.id])return false;seen[j.id]=true;return true;});
+      saveJobs(merged);
+      renderJobs();
+    }
+  })
+  .catch(function(){});
 }
 
 function copyAcc(){
@@ -2651,6 +2879,9 @@ function submitApply(){
 // ---- INIT ----
 renderJobs();
 renderPortfolio();
+loadFromJsonBin();
+// Apply saved Facebook URL
+(function(){ var s=getSettings(); if(s.fbUrl) applyFbUrl(s.fbUrl); })();
 
 // ---- MOBILE MENU ----
 function toggleMobileMenu(){
